@@ -7,18 +7,10 @@
     font-size: larger;
     font-style: oblique;
     border-radius: 20px;
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    & img{
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        z-index: -1;
-        border-radius: 20px;
-    }
     &_content{
         display: flex;
         & > p{

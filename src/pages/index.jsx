@@ -5,7 +5,6 @@ import Logo from '../assets/static/logo.png';
 import '../assets/styles/index.scss';
 
 const Pages = () => {
-  const [modal, setModal] = useState(false);
   const contenido = {
     title: ['Descubre', 'Conéctate', 'Practica'],
     frase: ['espacios, eventos y actividades', 'con personas, equipos y grupos', 'tu deporte favorito'],
@@ -16,7 +15,7 @@ const Pages = () => {
     frase: [contenido.frase[0]],
   });
 
-  if (text.title == contenido.title[0] && !modal) {
+  if (text.title == contenido.title[0]) {
     setTimeout(() => {
       setText({
         ...text,
@@ -26,7 +25,7 @@ const Pages = () => {
     }, 3000);
   };
 
-  if (text.title == contenido.title[1] && !modal) {
+  if (text.title == contenido.title[1]) {
     setTimeout(() => {
       setText({
         ...text,
@@ -36,7 +35,7 @@ const Pages = () => {
     }, 3000);
   };
 
-  if (text.title == contenido.title[2] && !modal) {
+  if (text.title == contenido.title[2]) {
     setTimeout(() => {
       setText({
         ...text,
@@ -63,12 +62,13 @@ const Pages = () => {
           >
             Empieza ya
           </Link>
-          <button
+          <Link
+            to='/login'
             className='btn btn-blanco-color-sm'
             type='button'
           >
             Log in
-          </button>
+          </Link>
         </div>
       </section>
     </Contenido>

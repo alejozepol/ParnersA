@@ -1,10 +1,11 @@
 import React from 'react';
+import FotoPerfil from '../fotoPerfil';
 import './cardImg.scss';
 
 const cardImg = ({ name, img, distancia, deporte }) => {
   return (
     <section className='cardImg'>
-      <img src={img} alt={name} />
+      <FotoPerfil img={img} alt={name} />
       <div className='cardImg_content'>
         <p>{name}</p>
         <small>{distancia}</small>
