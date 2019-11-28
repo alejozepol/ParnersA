@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
-import Modal from '../components/modal';
-import Formulario from '../components/formulario';
 import Logo from '../assets/static/logo.png';
-import logoWs from '../assets/static/logoWS.png';
 import '../assets/styles/index.scss';
 
 const Pages = () => {
@@ -17,9 +15,6 @@ const Pages = () => {
     title: [contenido.title[0]],
     frase: [contenido.frase[0]],
   });
-  const viewModal = () => {
-    modal ? setModal(false) : setModal(true);
-  };
 
   if (text.title == contenido.title[0] && !modal) {
     setTimeout(() => {
@@ -54,11 +49,6 @@ const Pages = () => {
   return (
     <Contenido>
       <section className='Pages'>
-        {modal && (
-          <Modal close={() => viewModal()}>
-            <Formulario />
-          </Modal>
-        )}
         <img className='Pages__img' src={Logo} alt='Logo Parners' />
         <div className='Pages__text'>
           <h2 className='Pages__title'>{text.title}</h2>
@@ -66,19 +56,19 @@ const Pages = () => {
         </div>
         <h4 className='Pages__cta'>¡Hacer deporte no volverá a ser igual!</h4>
         <div className='Pages__btn'>
-          <button
-            className='btn btn-blanco-color'
+          <Link
+            to='/registro'
+            className='btn btn-blanco-color-sm'
             type='button'
-            onClick={() => viewModal()}
           >
-            DESCUBRE CÓMO
+            Empieza ya
+          </Link>
+          <button
+            className='btn btn-blanco-color-sm'
+            type='button'
+          >
+            Log in
           </button>
-          <a href='https://wa.me/573013974177' target='_back'>
-            <button className='btn btn-whatsapp' type='button'>
-              <img src={logoWs} alt='LogoWhatsapp' />
-              CONTÀCTANOS
-            </button>
-          </a>
         </div>
       </section>
     </Contenido>
