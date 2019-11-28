@@ -1,0 +1,118 @@
+@import "./app.scss";
+@import "./animacionTexto.css";
+@media (max-width: 638px) {
+  .Pages {
+    &__text {
+      line-height: 2rem !important;
+    }
+    &__title {
+      font-size: 5em !important;
+    }
+    &__frase {
+      font-size: 2em !important;
+    }
+    &__cta {
+      font-size: 3em !important;
+    }
+    &__btn {
+      flex-direction: column-reverse !important;
+    }
+  }
+  .btn {
+    &-blanco-color {
+      font-size: x-large !important;
+      width: 100% !important;
+      height: 4rem !important;
+      margin-top: 10% !important ;
+      border-radius: 0px !important;
+    }
+    &-whatsapp {
+      width: 14rem !important;
+      height: 2rem !important;
+      font-size: large !important; 
+      & img {
+        height: 2rem !important;
+      }
+    }
+  }
+}
+
+.Pages {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  &__text {
+    font-style: italic;
+    line-height: 4rem;
+  }
+  &__img {
+    width: 20em;
+    height: 6em;
+  }
+  &__title {
+    font-size: 9em;
+  }
+  &__frase {
+    font-size: 3em;
+  }
+
+  &__cta {
+    font-size: 3em;
+  }
+  &__btn {
+    width: 100vw;
+    @extend .centradoFlex;
+  }
+}
+.btn {
+  width: 18rem;
+  height: 3rem;
+  padding: 0%;
+  margin: 1%;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 0;
+  font-size: x-large;
+  font-style: italic;
+  font-weight: 800;
+  @extend .centradoFlex;
+  &-blanco-color {
+    color: $color-claro;
+    @extend .degragadoColor;
+  }
+  &-blanco-color:hover {
+    background-color: $color-primario;
+  }
+  &-blanco-color-enviar {
+    color: $color-claro;
+    background-color: $color-primario;
+  }
+
+  &-whatsapp {
+    position: relative;
+    background-color: #26d566;
+    color: $color-claro;
+
+    & img {
+      height: 3rem;
+      background: $color-oscuro;
+      border-radius: 50%;
+      -moz-box-shadow: 3px 0px $color-oscuro;
+      -webkit-box-shadow: 3px 0px $color-oscuro;
+      position: absolute;
+      left: 0%;
+      @extend .sombraOscura;
+    }
+  }
+  &-whatsapp:hover {
+    background-color: #178640;
+    color: $color-claro;
+    & img {
+      left: 80%;
+      transition: 450ms all;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../assets/styles/app.scss";
+
+@media (max-width: 638px) {
+  .Modal {
+    &__content {
+      width: 90% !important;
+      & i {
+        right: 1% !important;
+        top: 0% !important;
+      }
+    }
+  }
+}
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: fade-out($color: $color-primario, $amount: 0.4);
+  z-index: 1;
+  top: 0px;
+  left: 0;
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 80vh;
+    position: relative;
+    & i {
+      position: absolute;
+      right: 5%;
+      top: 15%;
+      color: fade-out($color-oscuro, $amount: 0.5);
+      &:hover {
+        color: $color-oscuro;
+      }
+    }
+  }
+}

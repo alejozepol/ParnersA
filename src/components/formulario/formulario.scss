@@ -1,0 +1,58 @@
+@import "../../assets/styles/app.scss";
+
+@media (max-width: 638px){
+  .formulario{
+    height: 100% !important;
+    grid-template-rows: 40% 60% !important;
+    &__text{
+      padding: 1%;
+      & h3{
+        margin-top: 4% !important;
+      }
+    }
+  }
+}
+.formulario {
+  height: 70%;
+  width: 100%;
+  padding: 10%;
+  background-color: $color-claro;
+  color: $color-oscuro;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 30% 70%;
+  &__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.input {
+  background-color: transparent;
+  color: $color-oscuro;
+  border: 1px solid $color-oscuro-opacidad;
+  border-radius: 10px;
+  height: 2rem;
+  width: 80%;
+  margin: 3% 0;
+  &::placeholder{
+    text-align: center;
+  }
+  &:hover{
+    border: 1px solid $color-primario;
+  }
+}
+
+.confirmacion{
+  background-color: $color-claro;
+  border-radius: 30px;
+  height: 100%;
+}
