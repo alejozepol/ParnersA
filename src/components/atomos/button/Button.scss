@@ -1,0 +1,16 @@
+@import '../../../assets/styles/app.scss';
+
+.Button{
+    width: 80%;
+    padding: 0%;
+    margin: 1%;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 0;
+    font-size: large;
+    font-style: italic;
+    &__primario{
+        background-color: $color-primario;
+        color: $color-claro;
+    }
+}
