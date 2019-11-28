@@ -15,7 +15,6 @@
       font-size: 3em !important;
     }
     &__btn {
-      flex-direction: column-reverse !important;
     }
   }
   .btn {
@@ -24,6 +23,11 @@
       width: 100% !important;
       height: 4rem !important;
       margin-top: 10% !important ;
+      border-radius: 0px !important;
+    }
+    &-blanco-color-sm {
+      width: 50% !important;
+      font-size: medium !important;
       border-radius: 0px !important;
     }
     &-whatsapp {
@@ -85,6 +89,13 @@
   }
   &-blanco-color:hover {
     background-color: $color-primario;
+  }
+  &-blanco-color-sm {
+    color: $color-claro;
+    @extend .degragadoColor;
+  }
+  &-blanco-color-sm:hover {
+    background-color: $color-primario !important;
   }
   &-blanco-color-enviar {
     color: $color-claro;

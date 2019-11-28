@@ -1,0 +1,18 @@
+@import '../../../assets/styles/app.scss';
+
+.Input{
+    width: 80%;
+    margin: 2%;
+    border: none;
+    border-bottom: 1px solid $color-oscuro;
+}
+.Input::placeholder{
+    text-align: center;
+}
+.Input:hover{
+    border-bottom: 1px solid $color-segundario !important;
+    transition: 450ms all;
+}
+.Input:focus{
+    outline: none;
+}
