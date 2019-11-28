@@ -4,7 +4,7 @@ import CardImg from '../components/atomos/cardImg';
 import perfil from '../assets/static/perfil.jpg';
 import '../assets/styles/layout.scss';
 
-const Layout = () => {
+const Home = () => {
   return (
     <section className='Home'>
       <ContainerCard title='Personas'>
@@ -65,4 +65,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Home;

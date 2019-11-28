@@ -1,20 +1,21 @@
 import React from 'react';
+import classNames from 'classnames';
 import Buscador from '../components/buscador';
 import '../assets/styles/layout.scss';
 
 const Layout = ({ children }) => {
   return (
-    <section className='Home'>
-      <div className='Home__header'>
-        <Buscador />
+    <section className='Layout'>
+      <div className='Layout__header'>
+        <Buscador isHome />
         <i className='material-icons'>
           notifications
         </i>
       </div>
-      <div className='Home__contenido'>
+      <div className='Layout__contenido'>
         {children}
       </div>
-      <div className='Home__footer'>
+      <div className='Layout__footer'>
         <i className='material-icons'>
           person_pin
         </i>

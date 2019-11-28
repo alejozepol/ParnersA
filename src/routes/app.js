@@ -9,14 +9,16 @@ import Home from '../pages/home';
 const App = () => (
 
   <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route exact path='/' component={Page} />
-        <Route exact path='/registro' component={Registro} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/home' component={Home} />
-      </Switch>
-    </Layout>
+    <Switch>
+      <Route exact path='/' component={Page} />
+      <Route exact path='/registro' component={Registro} />
+      <Route exact path='/login' component={Login} />
+      <Layout>
+        <Switch>
+          <Route exact path='/home' component={Home} />
+        </Switch>
+      </Layout>
+    </Switch>
   </BrowserRouter>
 );
 
