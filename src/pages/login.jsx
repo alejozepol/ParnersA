@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Input from '../atomos/Input';
-import './formularioRegister.scss';
-import Button from '../atomos/button';
+import Input from '../components/atomos/Input';
+import Button from '../components/atomos/button';
 
-const formularioRegister = () => {
+const Login = () => {
   const [form, setForm] = useState({
     EMAIL: '',
   });
@@ -21,7 +20,7 @@ const formularioRegister = () => {
   };
   return (
     <section className='formularioRegister'>
-      <h2>Registrate</h2>
+      <h2>Ingresa</h2>
       <form onSubmit={handlSubmit}>
         <Input type='email' name='email' onChange={handleInput} />
         <Input type='password' name='password' onChange={handleInput} />
@@ -33,12 +32,9 @@ const formularioRegister = () => {
         <Button type='button'>
           Google
         </Button>
-        <Button type='button'>
-          Ya tengo cuenta
-        </Button>
       </div>
     </section>
   );
 };
 
-export default formularioRegister;
+export default Login;

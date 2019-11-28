@@ -1,6 +1,7 @@
 import React from 'react';
-import '../assets/styles/index.scss';
+import Button from '../components/atomos/button';
 import formularioRegister from '../components/formularioRegister/index';
+import '../assets/styles/index.scss';
 
 const Registro = () => {
   return (
