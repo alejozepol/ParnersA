@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import Buscador from '../components/buscador';
 import '../assets/styles/layout.scss';
 
