@@ -1,11 +1,12 @@
 import React from 'react';
+import './ContainerCard.scss';
 
 const ContainerCard = ({ title, children }) => {
   return (
     <section className='ContainerCard'>
       <div className='ContainerCard__title'>
-        {title}
-        ver mas
+        <h3>{title}</h3>
+        <p>ver mas</p>
       </div>
       <div className='ContainerCard__content'>
         {children}

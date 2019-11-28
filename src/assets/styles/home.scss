@@ -2,9 +2,19 @@
 
 .Home{
     min-height: 100vh;
+    max-height: 100vh;
     display: grid;
     grid-template-rows: 10% auto 10%;
     &__header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__contenido{
+        @extend .styleScroll;
+    }
+    &__footer{
+        background: $color-primario;
         display: flex;
         justify-content: space-around;
         align-items: center;
