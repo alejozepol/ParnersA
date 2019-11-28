@@ -26,6 +26,17 @@ const Input = (props) => {
           required
         />
       );
+    case 'standar':
+      return (
+        <input
+          className='Input Input__standar'
+          placeholder={name}
+          type='text'
+          name={name.toUpperCase()}
+          onChange={onChange}
+          required
+        />
+      );
     default:
       return (
         <input

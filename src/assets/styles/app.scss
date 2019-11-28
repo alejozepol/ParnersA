@@ -45,7 +45,8 @@ $size-sombra: 0px 0px 10px 0px;
 body{
     margin: 0%;
     padding: 0%;
-    color: $color-oscuro;
+    background-color: $color-oscuro;
+    color: $color-claro;
     font-family: $font-primaria;
     font-size: $font-size-primaria;
     height: 100vh;

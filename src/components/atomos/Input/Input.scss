@@ -7,6 +7,9 @@
     border-bottom: 1px solid $color-claro;
     background: transparent;
     color: $color-claro;
+    &__standar{
+        border: 1px solid $color-claro !important;
+    }
 }
 .Input::placeholder{
     text-align: center;
@@ -15,6 +18,9 @@
 .Input:hover{
     border-bottom: 1px solid $color-segundario !important;
     transition: 450ms all;
+}
+.Input__standar:hover{
+    border: 1px solid $color-segundario !important;
 }
 .Input:focus{
     outline: none;

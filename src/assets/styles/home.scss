@@ -1,0 +1,12 @@
+@import './app.scss';
+
+.Home{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 10% auto 10%;
+    &__header{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
