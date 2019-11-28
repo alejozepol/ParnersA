@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../components/atomos/button';
 import formularioRegister from '../components/formularioRegister/index';
 import '../assets/styles/index.scss';
 

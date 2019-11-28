@@ -1,5 +1,8 @@
 import React from 'react';
 import Buscador from '../components/buscador';
+import ContainerCard from '../components/containercard';
+import CardImg from '../components/atomos/cardImg';
+import perfil from '../assets/static/perfil.jpg';
 import '../assets/styles/home.scss';
 
 const Home = () => {
@@ -11,7 +14,32 @@ const Home = () => {
           notifications
         </i>
       </div>
-
+      <div className='Home__contenido'>
+        <ContainerCard title='Personas'>
+          <CardImg
+            name='Hugo'
+            img={perfil}
+            distancia='1mtr'
+            deporte='futbol'
+          />
+        </ContainerCard>
+        <ContainerCard title='Eventos'>
+          <CardImg
+            name='Hugo'
+            img={perfil}
+            distancia='1mtr'
+            deporte='futbol'
+          />
+        </ContainerCard>
+        <ContainerCard title='Lugares'>
+          <CardImg
+            name='Hugo'
+            img={perfil}
+            distancia='1mtr'
+            deporte='futbol'
+          />
+        </ContainerCard>
+      </div>
     </section>
   );
 };
