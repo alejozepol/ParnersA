@@ -1,0 +1,16 @@
+@import '../../assets/styles/app.scss';
+
+.formularioRegister{
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  grid-template-rows: 20% 60% 20%;
+  &__Botones{
+    width: 100%;
+  }
+}
