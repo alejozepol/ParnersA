@@ -2,9 +2,9 @@ import React from 'react';
 import FotoPerfil from '../fotoPerfil';
 import './cardImg.scss';
 
-const cardImg = ({ name, img, distancia, deporte }) => {
+const cardImg = ({ name, img, distancia, deporte, onClick }) => {
   return (
-    <section className='cardImg'>
+    <section className='cardImg' onClick={onClick}>
       <FotoPerfil img={img} alt={name} />
       <div className='cardImg_content'>
         <p>{name}</p>
