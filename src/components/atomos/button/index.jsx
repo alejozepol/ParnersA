@@ -4,7 +4,16 @@ import './Button.scss';
 const Button = (props) => {
   const { type, children, } = props;
   switch (type) {
-    case 'Primario':
+    case 'submit':
+      return (
+        <button
+          className='Button Button__primario'
+          type='submit'
+        >
+          {children}
+        </button>
+      );
+    case 'button':
       return (
         <button
           className='Button Button__primario'
@@ -13,8 +22,6 @@ const Button = (props) => {
           {children}
         </button>
       );
-    case 'Segundario':
-      return (<input className='Input__password Input' placeholder='Contraseña' type='password' name={String.prototype.toUpperCase(name)} required />);
     default:
       return (
         <button

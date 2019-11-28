@@ -26,15 +26,15 @@ const formularioRegister = () => {
       <form>
         <Input type='email' name='email' onChange={handleInput} />
         <Input type='password' name='password' onChange={handleInput} />
-        <Button type='Primario'>
+        <Button type='submit'>
           Enviar
         </Button>
       </form>
       <div className='formularioRegister__Botones'>
-        <Button type='Primario'>
+        <Button type='button'>
           Google
         </Button>
-        <Button type='Primario'>
+        <Button type='button'>
           Ya tengo cuenta
         </Button>
       </div>

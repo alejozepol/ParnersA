@@ -4,10 +4,13 @@
     width: 80%;
     margin: 2%;
     border: none;
-    border-bottom: 1px solid $color-oscuro;
+    border-bottom: 1px solid $color-claro;
+    background: transparent;
+    color: $color-claro;
 }
 .Input::placeholder{
     text-align: center;
+    color: $color-claro;
 }
 .Input:hover{
     border-bottom: 1px solid $color-segundario !important;

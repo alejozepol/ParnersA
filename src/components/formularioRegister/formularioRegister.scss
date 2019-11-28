@@ -10,6 +10,8 @@
   align-items: center;
   text-align: center;
   grid-template-rows: 20% 60% 20%;
+  background-color: $color-oscuro;
+  color: $color-claro;
   &__Botones{
     width: 100%;
   }
