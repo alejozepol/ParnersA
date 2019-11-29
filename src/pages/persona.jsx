@@ -1,15 +1,36 @@
-import React from 'react';
-import perfil from '../assets/static/perfil.jpg';
-const Persona = ({person}) => {
+/* eslint-disable react/destructuring-assignment */
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getPersona } from '../action';
+
+const Persona = (props) => {
+  const { persona, getPersona } = props;
+  const { id } = props.match.params;
+
+  useEffect(() => {
+    getPersona(id);
+  }, []);
+
   return (
     <section>
-     <img src={perfil} alt={person.name}/>
-     <h4>Nombres</h4>
-     <h4>Genero</h4>
-     <h4>Distancia</h4>
-     <h4>Gustos Deportivos</h4>
+      <img src={persona.urlImg} alt={persona.name} />
+      <h4>Nombres</h4>
+      <h4>Genero</h4>
+      <h4>Distancia</h4>
+      <h4>Gustos Deportivos</h4>
     </section>
-      );
-    };
-    
-    export default Persona;
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    persona: state.persona,
+  };
+
+};
+
+const mapDispatchToProps = {
+  getPersona,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Persona);

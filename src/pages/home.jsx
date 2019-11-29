@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ContainerCard from '../components/containercard';
 import CardImg from '../components/atomos/cardImg';
 import perfil from '../assets/static/perfil.jpg';
@@ -13,13 +14,15 @@ const Home = (props) => {
     <section className='Home'>
       <ContainerCard title='Personas'>
         {personas.map((p) => (
-          <CardImg
-            key={p.id}
-            name={p.name}
-            img={p.urlImg}
-            distancia={p.distancia}
-            deporte='futbol'
-          />
+          <Link to={`persona/${p.id}`}>
+            <CardImg
+              key={p.id}
+              name={p.name}
+              img={p.urlImg}
+              distancia={p.distancia}
+              deporte='futbol'
+            />
+          </Link>
         ))}
       </ContainerCard>
       <ContainerCard title='Eventos'>

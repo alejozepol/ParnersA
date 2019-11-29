@@ -5,6 +5,7 @@ import Page from '../pages';
 import Registro from '../pages/registro';
 import Login from '../pages/login';
 import Home from '../pages/home';
+import Persona from '../pages/persona';
 
 const App = () => (
 
@@ -16,6 +17,7 @@ const App = () => (
       <Layout>
         <Switch>
           <Route exact path='/home' component={Home} />
+          <Route exact path='/persona/:id' component={Persona} />
         </Switch>
       </Layout>
     </Switch>

@@ -8,6 +8,7 @@ import App from './routes/app';
 const composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialState = {
+  persona: [],
   personas: [
     {
       id: 1,
