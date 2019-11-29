@@ -1,0 +1,9 @@
+@import './app.scss';
+
+.Persona{
+ display: grid;
+ grid-template-rows:  30% auto 20% ;
+ min-height: 80vh;
+ max-height: 80vh;
+ justify-content: center;
+}

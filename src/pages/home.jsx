@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import ContainerCard from '../components/containercard';
 import CardImg from '../components/atomos/cardImg';
 import perfil from '../assets/static/perfil.jpg';
-import '../assets/styles/layout.scss';
 
 const Home = (props) => {
 
