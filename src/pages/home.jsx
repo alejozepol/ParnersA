@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ContainerCard from '../components/containercard';
 import CardImg from '../components/atomos/cardImg';
-import perfil from '../assets/static/perfil.jpg';
 
 const Home = (props) => {
 
-  const { personas } = props;
+  const { personas, eventos, lugares } = props;
 
   return (
     <section className='Home'>
@@ -25,20 +24,27 @@ const Home = (props) => {
         ))}
       </ContainerCard>
       <ContainerCard title='Eventos'>
-        <CardImg
-          name='Hugo'
-          img={perfil}
-          distancia='1mtr'
-          deporte='futbol'
-        />
+        {eventos.map((ev) => (
+          <Link to={`evento/${ev.id}`}>
+            <CardImg
+              key={ev.id}
+              name={ev.name}
+              img={ev.urlImg}
+              deporte='futbol'
+            />
+          </Link>
+        ))}
       </ContainerCard>
       <ContainerCard title='Lugares'>
-        <CardImg
-          name='Hugo'
-          img={perfil}
-          distancia='1mtr'
-          deporte='futbol'
-        />
+        {lugares.map((l) => (
+          <Link to={`lugar/${l.id}`}>
+            <CardImg
+              name={l.name}
+              img={l.urlImg}
+            />
+          </Link>
+        ))}
+
       </ContainerCard>
     </section>
   );
@@ -47,6 +53,8 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
   return {
     personas: state.personas,
+    eventos: state.eventos,
+    lugares: state.lugares,
   };
 };
 

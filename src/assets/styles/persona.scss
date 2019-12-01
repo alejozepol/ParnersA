@@ -2,8 +2,9 @@
 
 .Persona{
  display: grid;
- grid-template-rows:  30% auto 20% ;
+ grid-template-rows:  40% auto 10% ;
  min-height: 80vh;
  max-height: 80vh;
- justify-content: center;
+ justify-items: center;
+ align-items: center;
 }

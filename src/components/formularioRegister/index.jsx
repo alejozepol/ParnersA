@@ -1,27 +1,44 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Input from '../atomos/Input';
-import './formularioRegister.scss';
 import Button from '../atomos/button';
+import firebase from '../../services/firebaseConfig';
 
-const formularioRegister = () => {
+import './formularioRegister.scss';
+
+const formularioRegister = (props) => { 
   const [form, setForm] = useState({
     EMAIL: '',
+    PASSWORD: '',
   });
+
+  const createUserWithEmailAndPassword = (EMAIL, PASSWORD) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(EMAIL, PASSWORD)
+      .then((res) => {
+        res.user.sendEmailVerification('https://app.parners.co');
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleInput = (event) => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
     });
-    console.log(form);
   };
 
   const handlSubmit = (event) => {
     event.preventDefault();
+/*     createUserWithEmailAndPassword(form.EMAIL, form.PASSWORD); */
+    props.history.push('/');
   };
   return (
     <section className='formularioRegister'>
-      <h2>Registrate</h2>
+      <div>
+        <h2>Registrate</h2>
+      </div>
       <form onSubmit={handlSubmit}>
         <Input type='email' name='email' onChange={handleInput} />
         <Input type='password' name='password' onChange={handleInput} />
@@ -41,4 +58,4 @@ const formularioRegister = () => {
   );
 };
 
-export default formularioRegister;
+export default connect(null, null)(formularioRegister);

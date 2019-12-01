@@ -6,6 +6,8 @@ import Registro from '../pages/registro';
 import Login from '../pages/login';
 import Home from '../pages/home';
 import Persona from '../pages/persona';
+import evento from '../pages/evento';
+import lugar from '../pages/lugar';
 
 const App = () => (
 
@@ -18,6 +20,8 @@ const App = () => (
         <Switch>
           <Route exact path='/home' component={Home} />
           <Route exact path='/persona/:id' component={Persona} />
+          <Route exact path='/evento/:id' component={evento} />
+          <Route exact path='/lugar/:id' component={lugar} />
         </Switch>
       </Layout>
     </Switch>
