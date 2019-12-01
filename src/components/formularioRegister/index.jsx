@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { createUserWithEmailAndPassword } from '../../services/auth';
 import Input from '../atomos/Input';
 import Button from '../atomos/button';
-import firebase from '../../services/firebaseConfig';
 
 import './formularioRegister.scss';
 
-const formularioRegister = (props) => { 
+const formularioRegister = (props) => {
   const [form, setForm] = useState({
     EMAIL: '',
     PASSWORD: '',
   });
-
-  const createUserWithEmailAndPassword = (EMAIL, PASSWORD) => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(EMAIL, PASSWORD)
-      .then((res) => {
-        res.user.sendEmailVerification('https://app.parners.co');
-      })
-      .catch((error) => console.log(error));
-  };
 
   const handleInput = (event) => {
     setForm({
@@ -31,7 +21,7 @@ const formularioRegister = (props) => {
 
   const handlSubmit = (event) => {
     event.preventDefault();
-/*     createUserWithEmailAndPassword(form.EMAIL, form.PASSWORD); */
+    createUserWithEmailAndPassword(form.EMAIL, form.PASSWORD);
     props.history.push('/');
   };
   return (
