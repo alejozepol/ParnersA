@@ -1,9 +1,9 @@
 import firebase from './firebaseConfig';
 
-function createUserWithEmailAndPassword(email, password) {
+function createUserWithEmailAndPassword(user) {
   firebase
     .auth()
-    .createUserWithEmailAndPassword(email, password)
+    .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
     .then((res) => {
       res.user.sendEmailVerification('https://app.parners.co');
     })
@@ -14,6 +14,9 @@ function createUserWithEmailAndPassword(email, password) {
           break;
         case 'auth/user-not-found':
           console.log('😰¡Usuario no encontrado!😰');
+          break;
+        case 'auth/email-already-in-use':
+          console.log('😰¡Email ya registrado!😰');
           break;
         default:
           console.log(error);

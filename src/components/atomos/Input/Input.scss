@@ -1,27 +1,46 @@
-@import '../../../assets/styles/app.scss';
+@import "../../../assets/styles/app.scss";
 
-.Input{
-    width: 80%;
-    margin: 2%;
-    border: none;
-    border-bottom: 1px solid $color-claro;
-    background: transparent;
-    color: $color-claro;
-    &__standar{
-        border: 1px solid $color-claro !important;
-    }
-}
-.Input::placeholder{
+.Input {
+  width: 80%;
+  height: 2rem;
+  margin: 3% 0;
+  border: 1px solid $color-claro;
+  border-radius: 10px;
+  background: transparent;
+  color: $color-claro;
+  &__standar {
+    border: 1px solid $color-claro !important;
+  }
+  &::placeholder {
     text-align: center;
     color: $color-claro;
-}
-.Input:hover{
-    border-bottom: 1px solid $color-segundario !important;
+  }
+  &:hover {
+    border: 1px solid $color-primario !important;
     transition: 450ms all;
+    text-align: center;
+  }
 }
-.Input__standar:hover{
-    border: 1px solid $color-segundario !important;
+
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  text-align: center;
+  border: 1px solid $color-primario !important;
+  -webkit-text-fill-color: $color-claro;
+  transition: background-color 5000s ease-in-out 0s;
 }
-.Input:focus{
-    outline: none;
+
+.Input__standar:hover {
+  border: 1px solid $color-segundario !important;
+}
+.Input:focus {
+  outline: none;
 }

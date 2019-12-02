@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
 import Logo from '../assets/static/logo.png';
@@ -75,4 +76,4 @@ const Pages = () => {
   );
 };
 
-export default Pages;
+export default connect(null, null)(Pages);

@@ -1,0 +1,48 @@
+@import "../../../assets/styles/app.scss";
+
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: fade-out($color: $color-primario, $amount: 0.4);
+  z-index: 1;
+  top: 0px;
+  left: 0;
+  &__content {
+    width: 80%;
+    height: 60%;
+    position: relative;
+    background-color: $color-claro;
+    color: $color-oscuro;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 20% 60% 20%;;
+    justify-content: center;
+    align-items: center;
+    &__title{
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 1;
+    }
+    &__messager{
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+    & i {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 1;
+      color: fade-out($color-oscuro, $amount: 0.5);
+      &:hover {
+        color: $color-primario;
+      }
+    }
+  }
+}

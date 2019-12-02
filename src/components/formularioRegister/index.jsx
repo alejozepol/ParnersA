@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createUserWithEmailAndPassword } from '../../services/auth';
+import firebase from '../../services/firebaseConfig';
 import Input from '../atomos/Input';
+import Modal from '../atomos/modal';
 import Button from '../atomos/button';
 
 import './formularioRegister.scss';
 
 const formularioRegister = (props) => {
+  const [modal, setModal] = useState({
+    title: '',
+    messager: '',
+    view: false,
+  });
+
   const [form, setForm] = useState({
     EMAIL: '',
     PASSWORD: '',
   });
 
+  const viewModal = () => {
+    modal.view ? setModal({
+      ...modal,
+      view: false,
+    }) : setModal({
+      ...modal,
+      view: true,
+    });
+  };
   const handleInput = (event) => {
     setForm({
       ...form,
@@ -19,13 +35,43 @@ const formularioRegister = (props) => {
     });
   };
 
+  const createUserWithEmailAndPassword = (user) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
+      .then((res) => {
+        res.user.sendEmailVerification('https://app.parners.co');
+      })
+      .catch((error) => {
+        viewModal();
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            setModal({
+              title: '😰¡Email ya registrado!😰',
+              messager: `El correo ${form.EMAIL} ya se encuentra registrado inicia sesion o registrate con otro correo`,
+              view: true,
+            });
+            setMessages('😰¡Email ya registrado!😰');
+            break;
+          default:
+            setModal({
+              title: '😰Ha ocurrido un error😰',
+              messager: `${error}`,
+              view: true,
+            });
+            break;
+        }
+      });
+  };
+
   const handlSubmit = (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(form.EMAIL, form.PASSWORD);
-    props.history.push('/');
+    createUserWithEmailAndPassword(form);
   };
   return (
     <section className='formularioRegister'>
+      {modal.view &&
+        <Modal close={() => viewModal()} title={modal.title} message={modal.messager} />}
       <div>
         <h2>Registrate</h2>
       </div>
@@ -47,5 +93,11 @@ const formularioRegister = (props) => {
     </section>
   );
 };
+const mapStateToProps = (state) => {
+  return state;
+};
+const mapActionToProps = {
 
-export default connect(null, null)(formularioRegister);
+};
+
+export default connect(mapStateToProps, mapActionToProps)(formularioRegister);

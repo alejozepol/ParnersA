@@ -2,20 +2,14 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
+import { Router } from 'react-router';
+import { createBrowserHistory } from 'history';
 import reducer from './reducers';
 import App from './routes/app';
 
 const composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const initialState = {
-  user: [
-    {
-      id: 1,
-      name: 'Alejandro Lopez',
-      urlImg: 'https://scontent.fbog2-2.fna.fbcdn.net/v/t1.0-9/s960x960/50801688_10156695025655617_7202425371004764160_o.jpg?_nc_cat=107&_nc_ohc=YflIxA78Wk8AQnNe5cNyFTzuZ186sPZDYn0HHYKvkUKQlqNYI13oYhFUA&_nc_ht=scontent.fbog2-2.fna&oh=b328fa4d5e6b258c74da5b66da395cf2&oe=5E7FD976',
-      email: 'alejozepol@gmail.com',
-      password: '123',
-    },
-  ],
+  user: [],
   persona: [],
   lugar: [],
   evento: [],
@@ -199,12 +193,14 @@ const initialState = {
     },
   ],
 };
-
+const history = createBrowserHistory();
 const store = createStore(reducer, initialState, composeEnhacers());
 
 ReactDom.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('app'),
 );

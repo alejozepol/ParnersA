@@ -1,7 +1,7 @@
 import React from 'react';
 import './modal.scss';
 
-const Modal = ({ children, close }) => (
+const Modal = ({ close, title, message }) => (
   <section className='Modal'>
     <div className='Modal__content'>
       <i
@@ -13,7 +13,13 @@ const Modal = ({ children, close }) => (
       >
         close
       </i>
-      {children}
+      <div className='Modal__content__title'>
+        <h3>{title}</h3>
+      </div>
+      <div className='Modal__content__messager'>
+        <p>{message}</p>
+      </div>
+
     </div>
   </section>
 );
