@@ -58,14 +58,14 @@ const Pages = () => {
         <div className='Pages__btn'>
           <Link
             to='/registro'
-            className='btn btn-blanco-color-sm'
+            className='Button'
             type='button'
           >
             Empieza ya
           </Link>
           <Link
             to='/login'
-            className='btn btn-blanco-color-sm'
+            className='Button Button__primario'
             type='button'
           >
             Log in

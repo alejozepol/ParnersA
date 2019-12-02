@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import firebase from '../../services/firebaseConfig';
 import Input from '../atomos/Input';
 import Modal from '../atomos/modal';
@@ -83,11 +84,14 @@ const formularioRegister = (props) => {
         </Button>
       </form>
       <div className='formularioRegister__Botones'>
-        <Button type='button'>
+        <Button type='img'>
+          <img src='https://www.freepnglogos.com/uploads/google-plus-png-logo/download-google-brand-vector-png-logos-18.png' alt='LogoWhatsapp' />
           Google
         </Button>
         <Button type='button'>
-          Ya tengo cuenta
+          <Link to='/login'>
+              Ya tengo cuenta
+          </Link>
         </Button>
       </div>
     </section>

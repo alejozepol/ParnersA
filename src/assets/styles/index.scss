@@ -17,28 +17,6 @@
     &__btn {
     }
   }
-  .btn {
-    &-blanco-color {
-      font-size: x-large !important;
-      width: 100% !important;
-      height: 4rem !important;
-      margin-top: 10% !important ;
-      border-radius: 0px !important;
-    }
-    &-blanco-color-sm {
-      width: 50% !important;
-      font-size: medium !important;
-      border-radius: 0px !important;
-    }
-    &-whatsapp {
-      width: 14rem !important;
-      height: 2rem !important;
-      font-size: large !important; 
-      & img {
-        height: 2rem !important;
-      }
-    }
-  }
 }
 
 .Pages {
@@ -69,61 +47,5 @@
   &__btn {
     width: 100vw;
     @extend .centradoFlex;
-  }
-}
-.btn {
-  width: 18rem;
-  height: 3rem;
-  padding: 0%;
-  margin: 1%;
-  text-decoration: none;
-  border-radius: 30px;
-  border: 0;
-  font-size: x-large;
-  font-style: italic;
-  font-weight: 800;
-  @extend .centradoFlex;
-  &-blanco-color {
-    color: $color-claro;
-    @extend .degragadoColor;
-  }
-  &-blanco-color:hover {
-    background-color: $color-primario;
-  }
-  &-blanco-color-sm {
-    color: $color-claro;
-    @extend .degragadoColor;
-  }
-  &-blanco-color-sm:hover {
-    background-color: $color-primario !important;
-  }
-  &-blanco-color-enviar {
-    color: $color-claro;
-    background-color: $color-primario;
-  }
-
-  &-whatsapp {
-    position: relative;
-    background-color: #26d566;
-    color: $color-claro;
-
-    & img {
-      height: 3rem;
-      background: $color-oscuro;
-      border-radius: 50%;
-      -moz-box-shadow: 3px 0px $color-oscuro;
-      -webkit-box-shadow: 3px 0px $color-oscuro;
-      position: absolute;
-      left: 0%;
-      @extend .sombraOscura;
-    }
-  }
-  &-whatsapp:hover {
-    background-color: #178640;
-    color: $color-claro;
-    & img {
-      left: 80%;
-      transition: 450ms all;
-    }
   }
 }

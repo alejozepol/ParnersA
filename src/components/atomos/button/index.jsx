@@ -22,6 +22,16 @@ const Button = (props) => {
           {children}
         </button>
       );
+    case 'img':
+      return (
+        <button
+          className='Button Button-img'
+          type='button'
+        >
+        
+          {children}
+        </button>
+      );
     default:
       return (
         <button
