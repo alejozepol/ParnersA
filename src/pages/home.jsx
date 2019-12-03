@@ -55,6 +55,7 @@ const mapStateToProps = (state) => {
     personas: state.personas,
     eventos: state.eventos,
     lugares: state.lugares,
+    user: state.user,
   };
 };
 

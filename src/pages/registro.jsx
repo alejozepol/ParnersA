@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import firebase from '../services/firebaseConfig';
+import { createUsuarBD } from '../services/databs';
+
 import { registerRequest } from '../action';
 import Input from '../components/atomos/Input';
 import Modal from '../components/atomos/modal';
@@ -37,15 +39,6 @@ const formularioRegister = (props) => {
     });
   };
 
-  function createUsuarBD(info) {
-    firebase.firestore()
-      .collection('usuar')
-      .doc(info.EMAIL)
-      .set(info)
-      .then()
-      .catch((error) => error);
-  }
-
   const createUserWithEmailAndPassword = (user) => {
     firebase
       .auth()
@@ -63,6 +56,7 @@ const formularioRegister = (props) => {
         });
         createUsuarBD(form);
         props.registerRequest(form);
+        props.history.push('/home');
       })
       .catch((error) => {
         viewModal();
