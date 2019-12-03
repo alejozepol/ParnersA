@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import firebase from '../../services/firebaseConfig';
+import { registerRequest } from '../../action';
 import Input from '../atomos/Input';
 import Modal from '../atomos/modal';
 import Button from '../atomos/button';
@@ -41,7 +42,16 @@ const formularioRegister = (props) => {
       .auth()
       .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
       .then((res) => {
-        res.user.sendEmailVerification('https://app.parners.co');
+        res.user.sendEmailVerification({
+          url: 'https://app.parners.co'
+        });
+        setModal({
+          title: 'Bienvenido',
+          messager: `registro exitoso por favor revise su correo ${form.EMAIL} para terminar el registro`,
+          view: true,
+        });
+        props.registerRequest(form);
+        props.history.push('/home');
       })
       .catch((error) => {
         viewModal();
@@ -65,6 +75,15 @@ const formularioRegister = (props) => {
       });
   };
 
+  function loginGoogle() {
+    firebase
+      .auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   const handlSubmit = (event) => {
     event.preventDefault();
     createUserWithEmailAndPassword(form);
@@ -84,13 +103,13 @@ const formularioRegister = (props) => {
         </Button>
       </form>
       <div className='formularioRegister__Botones'>
-        <Button type='img'>
+        <Button type='img' onClick={() => loginGoogle()}>
           <img src='https://www.freepnglogos.com/uploads/google-plus-png-logo/download-google-brand-vector-png-logos-18.png' alt='LogoWhatsapp' />
           Google
         </Button>
         <Button type='button'>
           <Link to='/login'>
-              Ya tengo cuenta
+            Ya tengo cuenta
           </Link>
         </Button>
       </div>
@@ -100,8 +119,8 @@ const formularioRegister = (props) => {
 const mapStateToProps = (state) => {
   return state;
 };
-const mapActionToProps = {
-
+const mapDispatchToProps = {
+  registerRequest,
 };
 
-export default connect(mapStateToProps, mapActionToProps)(formularioRegister);
+export default connect(null, mapDispatchToProps)(formularioRegister);

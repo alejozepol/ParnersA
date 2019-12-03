@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import firebase from '../services/firebaseConfig';
 import Input from '../components/atomos/Input';
 import Button from '../components/atomos/button';
 

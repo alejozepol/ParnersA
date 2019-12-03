@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import requireAuth from './requireAuth';
 import Layout from '../pages/Layout';
 import Page from '../pages';
 import Registro from '../pages/registro';
@@ -24,6 +25,7 @@ const App = () => (
           <Route exact path='/lugar/:id' component={lugar} />
         </Switch>
       </Layout>
+
     </Switch>
   </BrowserRouter>
 );

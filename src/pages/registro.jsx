@@ -37,6 +37,15 @@ const formularioRegister = (props) => {
     });
   };
 
+  function createUsuarBD(info) {
+    firebase.firestore()
+      .collection('usuar')
+      .doc(info.EMAIL)
+      .set(info)
+      .then()
+      .catch((error) => error);
+  }
+
   const createUserWithEmailAndPassword = (user) => {
     firebase
       .auth()
@@ -52,6 +61,7 @@ const formularioRegister = (props) => {
           messager: `registro exitoso por favor revise su correo ${form.EMAIL} para terminar el registro`,
           view: true,
         });
+        createUsuarBD(form);
         props.registerRequest(form);
       })
       .catch((error) => {
@@ -84,6 +94,8 @@ const formularioRegister = (props) => {
         form.photoURL = res.user.photoURL;
         form.name = res.user.displayName;
         form.id = res.user.uid;
+        form.EMAIL = res.user.email;
+        createUsuarBD(form);
         props.registerRequest(form);
         props.history.push('/home');
       })
