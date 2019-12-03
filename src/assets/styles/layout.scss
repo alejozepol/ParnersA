@@ -18,5 +18,13 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        & .material-icons{
+            font-size: 40px;
+        }
+        & >img{
+            height: 40px;
+            width: 40px;
+            border-radius: 30px;
+        }
     }
 }

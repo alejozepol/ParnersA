@@ -1,8 +1,12 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import { connect } from 'react-redux';
 import Buscador from '../components/buscador';
 import '../assets/styles/layout.scss';
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
+  console.log(props);
+
   return (
     <section className='Layout'>
       <div className='Layout__header'>
@@ -12,7 +16,7 @@ const Layout = ({ children }) => {
         </i>
       </div>
       <div className='Layout__contenido'>
-        {children}
+        {props.children}
       </div>
       <div className='Layout__footer'>
         <i className='material-icons'>
@@ -27,12 +31,26 @@ const Layout = ({ children }) => {
         <i className='material-icons'>
           directions
         </i>
-        <i className='material-icons'>
-          sentiment_very_satisfied
-        </i>
+        {props.user.photoURL ?
+          (
+            <img
+              src={props.user.photoURL}
+              alt={props.user.name}
+              className='Layout__footer__img'
+            />
+          ) : (
+            <i className='material-icons'>
+              sentiment_very_satisfied
+            </i>
+          )}
       </div>
     </section>
   );
 };
+const mapStatecToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
 
-export default Layout;
+export default connect(mapStatecToProps, null)(Layout);
