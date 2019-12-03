@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContainerCard.scss';
 
-const ContainerCard = ({ title, children }) => {
+const ContainerCard = ({ title, children, onClick }) => {
   return (
     <section className='ContainerCard'>
       <div className='ContainerCard__title'>

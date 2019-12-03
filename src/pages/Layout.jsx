@@ -5,8 +5,6 @@ import Buscador from '../components/buscador';
 import '../assets/styles/layout.scss';
 
 const Layout = (props) => {
-  console.log(props);
-
   return (
     <section className='Layout'>
       <div className='Layout__header'>

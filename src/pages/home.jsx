@@ -3,23 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ContainerCard from '../components/containercard';
 import CardImg from '../components/atomos/cardImg';
+import Card from '../components/atomos/card';
 
 const Home = (props) => {
 
-  const { personas, eventos, lugares } = props;
+  const { personas, eventos, lugares, user } = props;
 
   return (
     <section className='Home'>
       <ContainerCard title='Personas'>
+
         {personas.map((p) => (
           <Link to={`persona/${p.id}`}>
-            <CardImg
-              key={p.id}
-              name={p.name}
-              img={p.urlImg}
-              distancia={p.distancia}
-              deporte='futbol'
-            />
+            <Card user={p} />
           </Link>
         ))}
       </ContainerCard>
