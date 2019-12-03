@@ -18,6 +18,11 @@ const reducer = (state, action) => {
         lugar: state.lugares.find((item) => item.id === Number(action.payload)) ||
           [],
       };
+    case 'REGISTER_REQUEST':
+      return {
+        ...state,
+        user: action.payload,
+      };
     default:
       return state;
   }
