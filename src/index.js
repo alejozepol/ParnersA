@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import { FirebaseContext, Firebase } from './services/firebase';
 import reducer from './reducers';
-import HelloWorld from './components/helloWorld';
+import App from './routes';
 
 const composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -144,7 +144,7 @@ const store = createStore(reducer, initialState, composeEnhacers());
 ReactDom.render(
   <FirebaseContext.Provider value={new Firebase()}>
     <Provider store={store}>
-      <HelloWorld />
+      <App />
     </Provider>
   </FirebaseContext.Provider>
   ,
