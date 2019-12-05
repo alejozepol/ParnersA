@@ -18,10 +18,11 @@ class Firebase {
 
     // instance variables
     this.db = FirebaseApp.firestore();
-    this.ideasCollection = this.db.collection('ideas');
+    this.eventosCollection = this.db.collection('eventos');
+    this.usuariosCollection = this.db.collection('usuar');
   }
 }
 
-const FirebaseContext = createContext(null)
+const FirebaseContext = createContext(null);
 
-export { Firebase, FirebaseContext, FirebaseApp }
+export { Firebase, FirebaseContext, FirebaseApp };
