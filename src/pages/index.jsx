@@ -1,9 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Eventos from './Eventos';
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div>fff</div>
+    <>
+      <Eventos />
+    </>
   );
 };
 
-export default Home;
+export default connect(null, null)(Home);
