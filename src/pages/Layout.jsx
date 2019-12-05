@@ -1,6 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { connect } from 'react-redux';
+import '../assets/styles/Layout.scss';
 
 const Layout = (props) => {
   return (

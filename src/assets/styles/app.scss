@@ -1,4 +1,6 @@
+@import './variables.scss';
+
 body{
     margin: 0;
-/*     background-color: brown; */
+    background-color:$color-claro-contraste;
 }

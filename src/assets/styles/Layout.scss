@@ -1,0 +1,34 @@
+@import './app.scss';
+
+.Layout{
+    min-height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-rows: 10% auto 10%;
+    grid-template-columns: 10% auto 10%;
+    &__header{
+        grid-column-start: 1;
+        grid-column-end: 4 ;
+        grid-row-start: 1;
+        grid-row-end: 2 ;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__contenido{
+        grid-column-start: 2;
+        grid-column-end: 3 ;
+        grid-row-start: 2;
+        grid-row-end: 3 ;
+        
+    }
+    &__footer{
+        grid-column-start: 1;
+        grid-column-end: 4 ;
+        grid-row-start: 3;
+        grid-row-end: 4 ;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
