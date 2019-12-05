@@ -33,6 +33,12 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case 'GET_PERSONAS':
+      state.personas.push(action.payload);
+      return {
+        ...state,
+        persona: [state.personas],
+      };
     default:
       return state;
   }

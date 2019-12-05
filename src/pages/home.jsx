@@ -1,13 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getPersonas } from '../action';
+import { getAll } from '../services/db/crud';
+import firebase from '../services/firebaseConfig';
 import ContainerCard from '../components/containercard';
 import CardImg from '../components/atomos/cardImg';
 import Card from '../components/atomos/card';
 
 const Home = (props) => {
 
-  const { personas, eventos, lugares, user } = props;
+  const { personas, eventos, lugares, user, getPersonas } = props;
+
+  const getDBPersonas = () => {
+    firebase.firestore()
+      .collection('usuar')
+      .get()
+      .then((data) => {
+        data.forEach((doc) => getPersonas(doc.data()))
+      })
+      .catch((error) => (
+        { state: false, menssage: error }
+      ));
+  }
+
+  getDBPersonas();
+  console.log(personas)
 
   return (
     <section className='Home'>
@@ -56,6 +74,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
+  getPersonas,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -2,7 +2,6 @@ import React from 'react';
 import './Card.scss';
 
 const Card = ({ user }) => {
-  console.log({ user });
   return (
     <section className='Cart'>
       <div className='Cart__img'>

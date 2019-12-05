@@ -26,3 +26,8 @@ export const logoutRequest = (payload) => ({
   type: 'LOGOUT_REQUEST',
   payload,
 });
+
+export const getPersonas = (payload) => ({
+  type: 'GET_PERSONAS',
+  payload,
+});
