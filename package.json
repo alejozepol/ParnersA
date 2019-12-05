@@ -1,5 +1,5 @@
 {
-  "name": "PlatziVideo",
+  "name": "Parners",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,21 +10,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alejozepol/PlatziVideoReact.git"
+    "url": "git+https://github.com/alejozepol/ParnersA.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alejozepol/PlatziVideoReact/issues"
+    "url": "https://github.com/alejozepol/ParnersA/issues"
   },
-  "homepage": "https://github.com/alejozepol/PlatziVideoReact#readme",
+  "homepage": "https://github.com/alejozepol/ParnersA#readme",
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "dotenv": "^8.2.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
