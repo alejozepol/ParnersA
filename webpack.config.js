@@ -47,6 +47,14 @@ module.exports = () => {
         },
       ],
     },
+    devServer: {
+      contentBase: path.join(__dirname, './dist'),
+      compress: true,
+      historyApiFallback: true,
+    },
+    node: {
+      fs: 'empty',
+    },
     plugins: [
       new HtmlWebPackPlugin({
         template: './public/index.html',
