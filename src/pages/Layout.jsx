@@ -6,10 +6,11 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 const Layout = (props) => {
+  console.log(props.location.pathname)
   return (
     <section className='Layout'>
       <div className='Layout__header'>
-        <Header />
+        <Header dir={props.location.pathname} />
       </div>
       <div className='Layout__contenido'>
         {props.children}
