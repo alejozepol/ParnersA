@@ -15,7 +15,7 @@ const Layout = (props) => {
         {props.children}
       </div>
       <div className='Layout__footer'>
-        <Footer />
+        <Footer dir={props.location.pathname} />
       </div>
     </section>
   );

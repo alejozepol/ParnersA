@@ -10,22 +10,23 @@ import PersonaI from '../../assets/icons/Persona-i.png';
 import Atras from '../../assets/icons/atras.png';
 import './icons.scss';
 
-const Icons = ({ type, state }) => {
+const Icons = ({ type, dir, state }) => {
+
   switch (type) {
     case 'eventos':
-      return (state ?
+      return (dir === '/' ?
         <img className='icons' src={EventosA} alt='eventos' /> :
         <img className='icons' src={EventosI} alt='eventos' />);
     case 'lugares':
-      return (state ?
+      return (type === String(dir).slice(1) ?
         <img className='icons' src={LugaresA} alt='lugares' /> :
         <img className='icons' src={LugaresI} alt='lugares' />);
     case 'perfil':
-      return (state ?
+      return (type === String(dir).slice(1) ?
         <img className='icons' src={PerfilA} alt='perfil' /> :
         <img className='icons' src={PerfilI} alt='perfil' />);
     case 'personas':
-      return (state ?
+      return (type === String(dir).slice(1) ?
         <img className='icons' src={PersonaA} alt='Personas' /> :
         <img className='icons' src={PersonaI} alt='evento' />);
     case 'atras':

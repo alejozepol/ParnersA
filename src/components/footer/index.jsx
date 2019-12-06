@@ -1,26 +1,28 @@
 import React from 'react';
 import './Footer.scss';
+import { Link } from 'react-router-dom';
 import Icons from '../icons';
 
-const Footer = () => {
+const Footer = ({ dir }) => {
+
   return (
     <section className='Footer'>
-      <div className='Footer__eventos'>
-        <Icons type='eventos' />
-      </div>
-      <div className='Footer__personas'>
-        <Icons type='personas' />
-      </div>
+      <Link to='/' className='Footer__eventos'>
+        <Icons type='eventos' dir={dir} />
+      </Link>
+      <Link to='/personas' className='Footer__personas'>
+        <Icons type='personas' dir={dir} />
+      </Link>
       <div className='Footer__btn'>
-boton grande
+        boton grande
       </div>
-      <div className='Footer__lugares'>
-        <Icons type='lugares' />
+      <Link to='/lugares' className='Footer__lugares'>
+        <Icons type='lugares' dir={dir} />
 
-      </div>
-      <div className='Footer__perfil'>
-        <Icons type='perfil' />
-      </div>
+      </Link>
+      <Link to='/perfil' className='Footer__perfil'>
+        <Icons type='perfil' dir={dir} />
+      </Link>
     </section>
   );
 };
