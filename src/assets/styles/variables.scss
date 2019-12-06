@@ -20,6 +20,11 @@ $font-size-primaria: 10px;
   -moz-box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
   box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
 }
+.sombraPrimario {
+  -webkit-box-shadow: $size-sombra fade-out($color-primario, $opacity);
+  -moz-box-shadow: $size-sombra fade-out($color-primario, $opacity);
+  box-shadow: $size-sombra fade-out($color-primario, $opacity);
+}
 
 .degragadoColor {
   background: $color-primario;

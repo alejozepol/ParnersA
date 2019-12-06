@@ -1,8 +1,10 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
 import Button from '../components/button';
+import Modal from '../components/modal';
 import Logo from '../assets/static/Logo2.png';
 import '../assets/styles/auth.scss';
 
@@ -46,32 +48,68 @@ const Auth = (props) => {
       });
     }, 3000);
   }
+  const [modalRegister, setModalRegister] = useState({
+    title: '',
+    messager: '',
+    view: false,
+  });
+  const viewModalRegister = () => {
+    modalRegister.view ? setModalRegister({
+      ...modalRegister,
+      view: false,
+    }) : setModalRegister({
+      ...modalRegister,
+      view: true,
+    });
+  };
+  const [modalLogIn, setModalLogIn] = useState({
+    title: '',
+    messager: '',
+    view: false,
+  });
+  const viewModalLogIn = () => {
+    modalLogIn.view ? setModalLogIn({
+      ...modalLogIn,
+      view: false,
+    }) : setModalLogIn({
+      ...modalLogIn,
+      view: true,
+    });
+  };
   return (
     <Contenido>
       <section className='Auth'>
+        {modalRegister.view && (
+          <Modal close={() => viewModalRegister()}>
+            sasa
+          </Modal>
+        )}
+        {modalLogIn.view && (
+          <Modal close={() => viewModalLogIn()}>
+            sasa
+          </Modal>
+      )}
         <img className='Auth__img' src={Logo} alt='Logo Parners' />
-        <div className='Auth__text'>
-          <h2 className='Auth__title'>{text.title}</h2>
-          <h3 className='Auth__frase'>{text.frase}</h3>
-        </div>
-        <div className='Auth__btn'>
-          <Link
-            to='/registro'
-            className='Button Button__primario'
-            type='button'
-          >
-            Empieza ya
-          </Link>
-          <Link
-            to='/login'
-            className='Button Button__claro'
-            type='button'
-          >
-            Log in
-          </Link>
-        </div>
+      <div className='Auth__text'>
+        <h2 className='Auth__title'>{text.title}</h2>
+        <h3 className='Auth__frase'>{text.frase}</h3>
+      </div>
+      <div className='Auth__btn'>
+        <Button
+          type='button'
+          onClick={() => viewModalRegister()}
+        >
+          Empieza ya
+          </Button>
+        <Button
+          type='button-claro'
+          onClick={() => viewModalLogIn()}
+        >
+          Log in
+          </Button>
+      </div>
       </section>
-    </Contenido>
+    </Contenido >
   );
 };
 

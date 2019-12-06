@@ -24,6 +24,16 @@ const Button = (props) => {
           {children}
         </button>
       );
+    case 'button-claro':
+      return (
+        <button
+          className='Button Button__claro'
+          type='button'
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      );
     case 'img':
       return (
         <button
