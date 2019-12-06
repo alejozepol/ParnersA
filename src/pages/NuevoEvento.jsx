@@ -62,7 +62,13 @@ const NuevoEventos = (props) => {
           </div>
           <div className='NuevoEvento__form__detalle'>
             <h2>Detalles</h2>
-            <Input name='titulo' />
+            <Input name='Titulo' onChange={handleInput} />
+            <Input name='Descripción' onChange={handleInput} />
+            <Input name='# de participante' onChange={handleInput} />
+            <Input type='datetime' name='Fecha  día / mes / año' onChange={handleInput} />
+            <Input name='Hora de inicio' onChange={handleInput} />
+            <Input name='Duración' />
+            <Input name='Ubicación' onChange={handleInput} />
           </div>
         </form>
       </CardBig>
