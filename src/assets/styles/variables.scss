@@ -1,2 +1,17 @@
 $color-claro-primario: #FCFCFC;
 $color-claro-contraste: #F4F4F4;
+$color-oscuro: #000000;
+$size-sombra: 0px 0px 5px 1px;
+$opacity:0.8;
+
+.sombraOscura{
+  -webkit-box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
+  -moz-box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
+  box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
+}
+
+.sombraClara{
+  -webkit-box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
+  -moz-box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
+  box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
+}

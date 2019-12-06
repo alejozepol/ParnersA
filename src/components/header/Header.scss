@@ -1,0 +1,8 @@
+@import '../../assets/styles/variables.scss';
+
+.Header{
+  width: 100%;
+  height: 100%;
+  background-color: $color-claro-primario;
+  @extend .sombraOscura;
+};
