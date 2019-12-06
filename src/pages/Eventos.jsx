@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { FirebaseApp } from '../services/firebase/index';
 import Card from '../container/Card';
 import portada from '../assets/static/football.png';
+import Ubicacion from '../assets/icons/Ubicacion.png';
 import '../assets/styles/Eventos.scss';
 
 const Eventos = (props) => {
+  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
   const [eventosDB, setEventosDB] = useState([]);
   useEffect(() => {
@@ -23,23 +25,27 @@ const Eventos = (props) => {
     });
     return () => listEvento();
   }, []);
-  console.log(eventosDB);
   return (
     <section className='Eventos'>
       {eventosDB.map((e) => (
-        <Card img={portada}>
+        <Card img={portada} key={e.id}>
           <div className='Eventos_content'>
             <h3>{e.TITULO}</h3>
-            <h4>{e.UBICACION}</h4>
+            <h4>
+              <img src={Ubicacion} alt='Ubicacion' />
+              {`  ${e.UBICACION}`}
+            </h4>
             <p>{e.HORAINICIAL}</p>
-            <p>{e.FECHA}</p>
-            <p>{e.CUPOS}</p>
+            <p>{new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
+            <p>
+              <img src={Ubicacion} alt='Ubicacion' />
+              {` ${e.CUPOS} Participantes`}
+            </p>
           </div>
         </Card>
-      ))
-      }
+      ))}
 
-    </section >
+    </section>
   );
 
 };
