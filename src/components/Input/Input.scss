@@ -1,0 +1,46 @@
+@import '../../assets/styles/variables.scss';
+
+.Input {
+  width: 80%;
+  height: 2rem;
+  margin: 3% 0;
+  border: none;
+  border-bottom: 1px solid fade-out($color-oscuro, $opacity);
+  border-radius: 10px;
+  background: transparent;
+  &__standar {
+    border: 1px solid $color-oscuro !important;
+  }
+  &::placeholder {
+    text-align: center;
+  }
+  &:hover {
+    border: none;
+    border-bottom: 1px solid $color-primario !important;
+    transition: 450ms all;
+    text-align: center;
+  }
+}
+
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  text-align: center;
+  border: 1px solid $color-primario !important;
+  -webkit-text-fill-color: $color-oscuro;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.Input__standar:hover {
+  border: 1px solid $color-segundario !important;
+}
+.Input:focus {
+  outline: none;
+}

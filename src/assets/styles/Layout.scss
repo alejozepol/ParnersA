@@ -9,8 +9,8 @@
     min-height: 100vh;
     max-height: 100vh;
     display: grid;
-    grid-template-rows: 10% 76% 10%;
-    grid-template-columns: 10% 76% 10%;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: 10% 80% 10%;
     &__header{
         grid-column-start: 1;
         grid-column-end: 4 ;

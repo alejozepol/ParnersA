@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { FirebaseApp } from '../services/firebase/index';
 import CardBig from '../container/cardBig';
+import Input from '../components/Input';
 import Isotipo from '../assets/static/Isotipo-bgPrimario.png';
 import '../assets/styles/NuevoEvento.scss';
 
@@ -37,7 +38,6 @@ const NuevoEventos = (props) => {
     return () => listDeportes();
   }, []);
 
-  console.log(handleInput);
   return (
     <section className='NuevoEvento'>
       <CardBig>
@@ -49,7 +49,7 @@ const NuevoEventos = (props) => {
             <div className='NuevoEvento__form__deportes-contenedor'>
               {deportes.map((d) => (
                 // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                <label className='NuevoEvento__form__deportes-input'>
+                <label className='NuevoEvento__form__deportes-input' key={d.id}>
                   <input onChange={handleInput} type='radio' name='deportes' value={d.id} />
                   {form.deportes === d.id ? (
                     <img src={d.iconA} alt={d.id} key={d.id} />
@@ -60,8 +60,9 @@ const NuevoEventos = (props) => {
               ))}
             </div>
           </div>
-          <div>
+          <div className='NuevoEvento__form__detalle'>
             <h2>Detalles</h2>
+            <Input name='titulo' />
           </div>
         </form>
       </CardBig>

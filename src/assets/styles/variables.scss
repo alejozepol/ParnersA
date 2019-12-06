@@ -62,7 +62,7 @@ $font-size-primaria: 10px;
     border-radius: 30px;
     width: 2px;
     height: 2px;
-    background: fade-out($color-primario, 0.8);
+    background: fade-out($color-oscuro, $opacity);
   }
   &::-webkit-scrollbar-thumb:hover {
     display: block;
