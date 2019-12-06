@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -44,6 +45,15 @@ module.exports = () => {
           'css-loader',
           'sass-loader',
           ],
+        },
+        {
+          test: /\.(png|gif|jpg|svg)$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].¨[ext]',
+            },
+          }],
         },
       ],
     },
