@@ -1,0 +1,10 @@
+@import '../../assets/styles/variables.scss';
+
+.CardBig{
+  width: 100%;
+  height: 90%;
+  margin: 10% 0%;
+  background: $color-claro-primario;
+  border-radius: 30px;
+  @extend .sombraOscura;
+}
