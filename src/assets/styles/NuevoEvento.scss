@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 .NuevoEvento {
   height: 100%;
   display: grid;
@@ -11,18 +11,20 @@
     &__deportes {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: flex-end;
+      align-items: center;
       max-width: 99%;
-      &-contenedor{
+      &-contenedor {
+        margin-top: 3%;
         max-width: 100%;
         display: flex;
         @extend .styleScrollX;
-        &> label{
+        & > label {
           margin: 0% 2%;
         }
       }
       &-input {
-        & >input{
+        & > input {
           display: none;
         }
       }
