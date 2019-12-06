@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.scss';
 
 const Input = (props) => {
-  const { type, name, onChange, key, value } = props;
+  const { type, name, onChange, value, placeholder } = props;
   switch (type) {
     case 'email':
       return (
@@ -30,8 +30,30 @@ const Input = (props) => {
       return (
         <input
           className='Input Input__standar'
-          placeholder={name}
+          placeholder={placeholder}
           type='text'
+          name={name.toUpperCase()}
+          onChange={onChange}
+          required
+        />
+      );
+    case 'time':
+      return (
+        <input
+          className='Input'
+          placeholder={placeholder}
+          type='time'
+          name={name.toUpperCase()}
+          onChange={onChange}
+          required
+        />
+      );
+    case 'date':
+      return (
+        <input
+          className='Input'
+          placeholder={placeholder}
+          type={type}
           name={name.toUpperCase()}
           onChange={onChange}
           required
@@ -41,25 +63,8 @@ const Input = (props) => {
       return (
         <input
           className='Input'
-          placeholder={name}
-          type='time'
-          name={key}
-          value={value}
-          min={Date.now}
-          name={name.toUpperCase()}
-          onChange={onChange}
-          required
-        />
-      );
-    case 'date':
-      return (
-        <input
-          className='Input Input__standar'
-          placeholder={name}
+          placeholder={placeholder}
           type={type}
-          name={key}
-          value={value}
-          min={Date.now}
           name={name.toUpperCase()}
           onChange={onChange}
           required
@@ -69,8 +74,8 @@ const Input = (props) => {
       return (
         <input
           className='Input'
-          placeholder={name}
-          type='text'
+          placeholder={placeholder}
+          type={type}
           name={name.toUpperCase()}
           onChange={onChange}
           required
@@ -80,7 +85,7 @@ const Input = (props) => {
       return (
         <input
           className='Input'
-          placeholder={name}
+          placeholder={placeholder}
           type='text'
           name={name.toUpperCase()}
           onChange={onChange}
