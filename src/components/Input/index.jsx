@@ -56,6 +56,7 @@ const Input = (props) => {
           type={type}
           name={name.toUpperCase()}
           onChange={onChange}
+          min={new Date().getDate()}
           required
         />
       );

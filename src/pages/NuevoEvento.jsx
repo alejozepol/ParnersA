@@ -7,18 +7,10 @@ import Isotipo from '../assets/static/Isotipo-bgPrimario.png';
 import '../assets/styles/NuevoEvento.scss';
 
 const NuevoEventos = (props) => {
-  const [deportes, setDeportes] = useState([]);
-  const [form, setForm] = useState({
-    deportes: '',
-  });
-  const handleInput = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
-    console.log(form);
-  };
   const colectionDeportes = FirebaseApp.firestore().collection('deportes');
+  const colectionEventos = FirebaseApp.firestore().collection('eventos');
+  const [deportes, setDeportes] = useState([]);
+  const [form, setForm] = useState({ deportes: '' });
 
   useEffect(() => {
     const listDeportes = colectionDeportes.onSnapshot(({ docs }) => {
@@ -38,11 +30,28 @@ const NuevoEventos = (props) => {
     return () => listDeportes();
   }, []);
 
+  const CrearEvento = (data) => {
+    colectionEventos.add(data)
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+  };
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+    console.log(form);
+  };
+  const handlSubmit = (event) => {
+    event.preventDefault();
+    CrearEvento(form);
+    props.history.push('/home');
+  };
   return (
     <section className='NuevoEvento'>
       <CardBig>
         <img src={Isotipo} alt='Parners' />
-        <form className='NuevoEvento__form'>
+        <form className='NuevoEvento__form' onSubmit={handlSubmit}>
           <div className='NuevoEvento__form__deportes'>
             <p>Para empezar</p>
             <h2>Selecciona el deporte</h2>
