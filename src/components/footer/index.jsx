@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Footer = () =>{
-  return(
+const Footer = () => {
+  return (
     <section>
       fotter
     </section>
