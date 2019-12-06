@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
-import Logo from '../assets/static/Logo.png';
+import Button from '../components/button';
+import Logo from '../assets/static/Logo2.png';
 import '../assets/styles/auth.scss';
 
 const Auth = (props) => {
@@ -47,24 +48,23 @@ const Auth = (props) => {
   }
   return (
     <Contenido>
-      <section className='Pages'>
-        <img className='Pages__img' src={Logo} alt='Logo Parners' />
-        <div className='Pages__text'>
-          <h2 className='Pages__title'>{text.title}</h2>
-          <h3 className='Pages__frase'>{text.frase}</h3>
+      <section className='Auth'>
+        <img className='Auth__img' src={Logo} alt='Logo Parners' />
+        <div className='Auth__text'>
+          <h2 className='Auth__title'>{text.title}</h2>
+          <h3 className='Auth__frase'>{text.frase}</h3>
         </div>
-        <h4 className='Pages__cta'>¡Hacer deporte no volverá a ser igual!</h4>
-        <div className='Pages__btn'>
+        <div className='Auth__btn'>
           <Link
             to='/registro'
-            className='Button'
+            className='Button Button__primario'
             type='button'
           >
             Empieza ya
           </Link>
           <Link
             to='/login'
-            className='Button Button__primario'
+            className='Button Button__claro'
             type='button'
           >
             Log in

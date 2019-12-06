@@ -1,7 +1,10 @@
 @import '../../assets/styles/variables.scss';
 .Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
-  height: 2rem;
+  height: 3rem;
   padding: auto;
   margin: 1%;
   text-decoration: none;
@@ -18,6 +21,13 @@
   &__primario:hover {
     color: $color-claro-primario;
     @extend .degragadoColor;
+  }
+  &__claro {
+    background-color: $color-claro-primario;
+    color: $color-primario;
+  }
+  &__claro:hover {
+    color: $color-segundario;
   }
   &-img {
     position: relative; 
