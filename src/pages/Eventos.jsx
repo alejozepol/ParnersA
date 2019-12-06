@@ -4,6 +4,7 @@ import { FirebaseApp } from '../services/firebase/index';
 import Card from '../container/Card';
 import portada from '../assets/static/football.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
+import Participantes from '../assets/icons/Participantes.png';
 import '../assets/styles/Eventos.scss';
 
 const Eventos = (props) => {
@@ -38,9 +39,10 @@ const Eventos = (props) => {
             <p>{e.HORAINICIAL}</p>
             <p>{new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
             <p>
-              <img src={Ubicacion} alt='Ubicacion' />
+              <img src={Participantes} alt='Ubicacion' />
               {` ${e.CUPOS} Participantes`}
             </p>
+            <button type='button'>+</button>
           </div>
         </Card>
       ))}

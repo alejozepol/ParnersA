@@ -6,8 +6,19 @@
     flex-direction: column;
     align-self: center;
     padding-left: 10%;;
+    position: relative;
     > p{
       margin: 0%;
+    }
+    > button{
+      position: absolute;
+      bottom: 1%;
+      right: 6%;
+      font-size: 20px;
+      border-radius: 30%;
+      background-color: $color-aceptar;
+      color: $color-claro-primario;
+      @extend .sombraOscura;
     }
   }
 
