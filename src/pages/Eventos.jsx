@@ -30,7 +30,6 @@ const Eventos = (props) => {
   return (
     <section className='Eventos'>
       {eventosDB.map((e) => (
-
         <Card img={portada} key={e.id}>
           <div className='Eventos_content'>
             <Link to={`evento/${e.id}`}>

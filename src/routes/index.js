@@ -7,6 +7,7 @@ import Lugares from '../pages/Lugares';
 import Perfil from '../pages/Perfil';
 import NuevoEventos from '../pages/NuevoEvento';
 import Evento from '../pages/Evento';
+import Auth from '../pages/auth';
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
         <Route exact path='/lugares' component={Lugares} />
         <Route exact path='/lugare/:id' component={Lugares} />
         <Route exact path='/perfil' component={Perfil} />
+        <Route exact path='/auth' component={Auth} />
       </Layout>
     </Switch>
   </BrowserRouter>

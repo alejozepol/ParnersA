@@ -10,7 +10,7 @@ import PersonaI from '../../assets/icons/Persona-i.png';
 import Atras from '../../assets/icons/atras.png';
 import './icons.scss';
 
-const Icons = ({ type, dir, state }) => {
+const Icons = ({ type, dir, state, onClick }) => {
 
   switch (type) {
     case 'eventos':
@@ -27,12 +27,12 @@ const Icons = ({ type, dir, state }) => {
         <img className='icons' src={PerfilI} alt='perfil' />);
     case 'personas':
       return (type === String(dir).slice(1) ?
-        <img className='icons' src={PersonaA} alt='Personas' /> :
-        <img className='icons' src={PersonaI} alt='evento' />);
+        <img className='icons' src={PersonaA} alt='Personas' onClick={onClick} /> :
+        <img className='icons' src={PersonaI} alt='Personas' onClick={onClick} />);
     case 'atras':
-      return <img className='icons' src={Atras} alt='atras' />;
+      return <img className='icons' src={Atras} alt='atras' onClick={onClick} />;
     default:
-      return <img className='icons' src={Atras} alt='atras' />;
+      return <img className='icons' src={Atras} alt='atras' onClick={onClick} />;
   }
 };
 

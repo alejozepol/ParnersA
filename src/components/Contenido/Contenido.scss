@@ -1,0 +1,39 @@
+@import '../../assets/styles/variables.scss';
+
+@media (max-width: 638px){
+  .Contenido{
+    &__img{
+      display: none;
+      &-movil{
+        display: block !important;
+      }
+    }
+  }
+}
+
+.Contenido{
+  height: 100%;
+  background: fade-out($color-oscuro, $opacity) ;
+  color: $color-claro-primario;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  &__img{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    &-movil{
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      background-size: cover;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}

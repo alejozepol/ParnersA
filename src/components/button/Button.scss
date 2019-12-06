@@ -1,0 +1,41 @@
+@import '../../assets/styles/variables.scss';
+.Button {
+  width: 80%;
+  height: 2rem;
+  padding: auto;
+  margin: 1%;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 0;
+  font-size: x-large;
+  font-style: italic;
+  font-weight: 800;
+  @extend .sombraClara;
+  &__primario {
+    background-color: $color-primario;
+    color: $color-claro-primario;
+  }
+  &__primario:hover {
+    color: $color-claro-primario;
+    @extend .degragadoColor;
+  }
+  &-img {
+    position: relative; 
+    background-color: $color-claro-primario;   
+    color: $color-oscuro;
+    @extend .sombraOscura;
+    & img {
+     height: 2rem;
+      border-radius: 50%;
+      position: absolute;
+      left: 0%;
+      @extend .sombraOscura;
+    }
+    &:hover {
+      & img {
+        left: 90%;
+        transition: 450ms all;
+      }
+    }
+  }
+}

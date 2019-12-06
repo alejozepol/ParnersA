@@ -1,10 +1,12 @@
 import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
+import { FirebaseApp } from '../../services/firebase/index';
 import btnMas from '../../assets/static/btn_mas.png';
 import Icons from '../icons';
 
 const Footer = ({ dir }) => {
+  const isLogger = FirebaseApp.auth().currentUser;
   return (
     dir !== '/eventos' && (
       <section className='Footer'>
@@ -28,9 +30,16 @@ const Footer = ({ dir }) => {
         <Link to='/lugares' className='Footer__lugares'>
           <Icons type='lugares' dir={dir} />
         </Link>
-        <Link to='/perfil' className='Footer__perfil'>
-          <Icons type='perfil' dir={dir} />
-        </Link>
+        {isLogger ? (
+          <Link to='/perfil' className='Footer__perfil'>
+            <Icons type='perfil' dir={dir} />
+          </Link>
+        ) : (
+          <Link to='/auth' className='Footer__perfil'>
+            <Icons type='perfil' dir={dir} />
+          </Link>
+        )}
+
       </section>
     )
   );
