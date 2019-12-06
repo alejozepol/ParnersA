@@ -1,17 +1,17 @@
 @import "./variables.scss";
 
 .Eventos{
+  & a{
+    color: $color-oscuro;
+  }
+  & p{
+    margin: 0%;
+  }
   & > .Card {
     height: 100%;
     & > img{
       height: 100%;
       width: 100%;
-    }
-    & > a{
-      color: $color-oscuro;
-    }
-    > p{
-      margin: 0%;
     }
   }
   &_content{

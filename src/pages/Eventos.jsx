@@ -32,8 +32,8 @@ const Eventos = (props) => {
       {eventosDB.map((e) => (
 
         <Card img={portada} key={e.id}>
-          <Link to={`evento/${e.id}`}>
-            <div className='Eventos_content'>
+          <div className='Eventos_content'>
+            <Link to={`evento/${e.id}`}>
               <h3>{e.TITULO}</h3>
               <h4>
                 <img src={Ubicacion} alt='Ubicacion' />
@@ -45,9 +45,9 @@ const Eventos = (props) => {
                 <img src={Participantes} alt='Ubicacion' />
                 {` ${e.CUPOS} Participantes`}
               </p>
-              <button type='button'>+</button>
-            </div>
-          </Link>
+            </Link>
+            <button type='button'>+</button>
+          </div>
         </Card>
       ))}
 
