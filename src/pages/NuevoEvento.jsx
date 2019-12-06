@@ -50,7 +50,7 @@ const NuevoEventos = (props) => {
               {deportes.map((d) => (
                 // eslint-disable-next-line jsx-a11y/label-has-associated-control
                 <label className='NuevoEvento__form__deportes-input' key={d.id}>
-                  <input onChange={handleInput} type='radio' name='deportes' value={d.id} />
+                  <input onChange={handleInput} type='radio' name='deportes' value={d.id} required />
                   {form.deportes === d.id ? (
                     <img src={d.iconA} alt={d.id} key={d.id} />
                   ) : (
@@ -70,6 +70,7 @@ const NuevoEventos = (props) => {
             <Input type='number' name='Duracion' placeholder='Duración' />
             <Input name='Ubicacion' placeholder='Ubicación' onChange={handleInput} />
           </div>
+          <button type='submit'>Crear Evento</button>
         </form>
       </CardBig>
     </section>
