@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import btnMas from '../../assets/static/btn_mas.png';
 import Icons from '../icons';
 
 const Footer = ({ dir }) => {
-
   return (
     <section className='Footer'>
       <Link to='/' className='Footer__eventos'>
@@ -15,7 +14,15 @@ const Footer = ({ dir }) => {
         <Icons type='personas' dir={dir} />
       </Link>
       <Link to='/eventos' className='Footer__btn'>
-        <button type='button'>+</button>
+        {dir !== '/eventos' ?
+          (
+            <button type='button' className='button'>+</button>
+          ) : (
+            <button type='button' className='button-aceptar'>
+              ✔
+            </button>
+          )
+        }
         {/* <img src={btnMas} alt='accion' /> */}
       </Link>
       <Link to='/lugares' className='Footer__lugares'>

@@ -1,6 +1,32 @@
 @import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 body{
-    margin: 0;
-    background-color:$color-claro-contraste;
+    margin: 0% !important;
+    padding: 0%;
+    background-color: $color-claro-contraste;
+    font-family: $font-primaria;
+    font-size: $font-size-primaria;
+    height: 100vh;
+    width: 100vw;
+}
+
+#app{
+  width: 100vw!important;
+  min-width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+@each $header, $size in (h2: 35px, h3: 20px, h4:16px) {
+    #{$header} {
+          font-size: $size;
+          margin: 0;
+    }
+  };
+
+a{
+    text-decoration: none !important;
 }

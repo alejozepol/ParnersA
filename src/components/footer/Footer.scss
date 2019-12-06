@@ -6,11 +6,12 @@
   border-radius: 30px 30px 0px 0px;
   background-color: $color-claro-primario;
   display: grid;
-  grid-template-columns: 10% 1fr 1fr 1fr 1fr 1fr 1fr 10%;
+  grid-template-columns: 5% 15% 15% 15% 15% 15% 15% 5%;
   justify-items: center;
   align-items: center;
   position: relative;
   @extend .sombraOscura;
+  
   &__eventos {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -27,12 +28,22 @@
     & > button{
       width: 80px;
       height: 80px;
-      font-size: 70px;
+      font-size: 60px;
       border-radius: 50%;
+    }
+    & .button{
       border-color: $color-primario;
       color: $color-claro-primario;
       @extend .degragadoColor;
       @extend .sombraOscura;
+      &{
+        &-aceptar{
+          border-color: $color-aceptar;
+          background-color: $color-aceptar;
+          color: $color-claro-primario;
+        }
+      }
+      
     }
     & > img {
       border-radius: 50%;

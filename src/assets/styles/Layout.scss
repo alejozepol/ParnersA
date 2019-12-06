@@ -1,11 +1,16 @@
 @import './app.scss';
 
 .Layout{
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
     min-height: 100vh;
     max-height: 100vh;
     display: grid;
-    grid-template-rows: 10% auto 10%;
-    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 10% 76% 10%;
+    grid-template-columns: 10% 76% 10%;
     &__header{
         grid-column-start: 1;
         grid-column-end: 4 ;
@@ -20,7 +25,6 @@
         grid-column-end: 3 ;
         grid-row-start: 2;
         grid-row-end: 3 ;
-        
     }
     &__footer{
         grid-column-start: 1;
