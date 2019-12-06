@@ -10,7 +10,7 @@ import PersonaI from '../../assets/icons/Persona-i.png';
 import Atras from '../../assets/icons/atras.png';
 import './icons.scss';
 
-const Icons = (type, state) => {
+const Icons = ({ type, state }) => {
   switch (type) {
     case 'eventos':
       return (state ?

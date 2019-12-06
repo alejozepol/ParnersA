@@ -1,0 +1,33 @@
+@import '../../assets/styles/variables.scss';
+
+.Footer{
+  width: 100vw;
+  height: 100%;
+  border-radius: 30px 30px 0px 0px;
+  background-color: $color-claro-primario;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 1fr 1fr 1fr 1fr 10%;
+  justify-items: center;
+  align-items: center;
+  @extend .sombraOscura;
+  &__eventos{
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  &__personas{
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+  &__btn{
+    grid-column-start: 4;
+    grid-column-end: 6;
+  }
+  &__lugares{
+    grid-column-start: 6;
+    grid-column-end: 7;
+  }
+  &__perfil{
+    grid-column-start: 7;
+    grid-column-end: 8;
+  }
+}
