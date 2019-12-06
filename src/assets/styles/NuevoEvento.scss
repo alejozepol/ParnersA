@@ -1,9 +1,35 @@
+@import './variables.scss';
 .NuevoEvento {
   height: 100%;
   display: grid;
   position: relative;
+  &__form {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    &__deportes {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      max-width: 99%;
+      &-contenedor{
+        max-width: 100%;
+        display: flex;
+        @extend .styleScrollX;
+        &> label{
+          margin: 0% 2%;
+        }
+      }
+      &-input {
+        & >input{
+          display: none;
+        }
+      }
+    }
+  }
   & > .CardBig {
-    & > img{
+    & > img {
       position: absolute;
       top: 0%;
       right: 35%;

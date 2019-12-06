@@ -14,11 +14,6 @@ class Firebase {
         .enablePersistence({ synchronizeTabs: true })
         .catch((err) => console.log(err));
     }
-
-    // instance variables
-    this.db = FirebaseApp.firestore();
-    this.eventosCollection = this.db.collection('eventos');
-    this.usuariosCollection = this.db.collection('usuar');
   }
 }
 
