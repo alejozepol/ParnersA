@@ -6,16 +6,17 @@ import Personas from '../pages/Personas';
 import Lugares from '../pages/Lugares';
 import Perfil from '../pages/Perfil';
 import Eventos from '../pages/Eventos';
+import NuevoEventos from '../pages/NuevoEvento';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route exact path='/Eventos' component={Eventos} />
-        <Route exact path='/Personas' component={Personas} />
-        <Route exact path='/Lugares' component={Lugares} />
-        <Route exact path='/Perfil' component={Perfil} />
+        <Route exact path='/eventos' component={NuevoEventos} />
+        <Route exact path='/personas' component={Personas} />
+        <Route exact path='/lugares' component={Lugares} />
+        <Route exact path='/perfil' component={Perfil} />
       </Layout>
     </Switch>
   </BrowserRouter>

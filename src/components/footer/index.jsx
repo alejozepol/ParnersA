@@ -14,10 +14,10 @@ const Footer = ({ dir }) => {
       <Link to='/personas' className='Footer__personas'>
         <Icons type='personas' dir={dir} />
       </Link>
-      <div className='Footer__btn'>
+      <Link to='/eventos' className='Footer__btn'>
         <button type='button'>+</button>
         {/* <img src={btnMas} alt='accion' /> */}
-      </div>
+      </Link>
       <Link to='/lugares' className='Footer__lugares'>
         <Icons type='lugares' dir={dir} />
       </Link>

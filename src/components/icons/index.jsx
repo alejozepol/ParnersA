@@ -14,7 +14,7 @@ const Icons = ({ type, dir, state }) => {
 
   switch (type) {
     case 'eventos':
-      return (dir === '/' ?
+      return (dir === '/' || type === String(dir).slice(1) ?
         <img className='icons' src={EventosA} alt='eventos' /> :
         <img className='icons' src={EventosI} alt='eventos' />);
     case 'lugares':

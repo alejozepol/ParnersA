@@ -1,0 +1,12 @@
+.NuevoEvento {
+  height: 100%;
+  display: grid;
+  position: relative;
+  & > .CardBig {
+    & > img{
+      position: absolute;
+      top: 0%;
+      right: 35%;
+    }
+  }
+}
