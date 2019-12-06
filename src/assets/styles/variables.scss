@@ -1,17 +1,30 @@
-$color-claro-primario: #FCFCFC;
-$color-claro-contraste: #F4F4F4;
+$color-claro-primario: #fcfcfc;
+$color-claro-contraste: #f4f4f4;
 $color-oscuro: #000000;
+$color-primario: #ff6917;
+$color-segundario: #ff293e;
 $size-sombra: 0px 0px 5px 1px;
-$opacity:0.8;
+$opacity: 0.8;
 
-.sombraOscura{
+.sombraOscura {
   -webkit-box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
   -moz-box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
   box-shadow: $size-sombra fade-out($color-oscuro, $opacity);
 }
 
-.sombraClara{
+.sombraClara {
   -webkit-box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
   -moz-box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
   box-shadow: $size-sombra fade-out($color-claro-primario, $opacity);
+}
+
+.degragadoColor {
+  background: $color-primario;
+  background: -moz-linear-gradient(top, $color-primario 0%, $color-segundario 100%);
+  background: -webkit-gradient(top, left bottom, color-stop(0%, $color-primario), color-stop(100%, $color-segundario));
+  background: -webkit-linear-gradient(left, $color-primario (25%, $color-segundario) 100%);
+  background: -o-linear-gradient(top, $color-primario 0%, $color-segundario 100%);
+  background: -ms-linear-gradient(top, $color-primario 0%, $color-segundario 100%);
+  background: linear-gradient(top, $color-primario 0%, $color-segundario 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-primario', endColorstr='$color-segundario', GradientType=0 );
 }

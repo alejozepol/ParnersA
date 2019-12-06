@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
+import btnMas from '../../assets/static/btn_mas.png';
 import Icons from '../icons';
 
 const Footer = ({ dir }) => {
@@ -14,11 +15,11 @@ const Footer = ({ dir }) => {
         <Icons type='personas' dir={dir} />
       </Link>
       <div className='Footer__btn'>
-        boton grande
+        <button type='button'>+</button>
+        {/* <img src={btnMas} alt='accion' /> */}
       </div>
       <Link to='/lugares' className='Footer__lugares'>
         <Icons type='lugares' dir={dir} />
-
       </Link>
       <Link to='/perfil' className='Footer__perfil'>
         <Icons type='perfil' dir={dir} />
