@@ -35,8 +35,6 @@ const Persona = (props) => {
             <p>{personaDB.DESCRIPCION}</p>
           </div>
           <div>
-          </div>
-          <div>
             asistentes
           </div>
         </div>
