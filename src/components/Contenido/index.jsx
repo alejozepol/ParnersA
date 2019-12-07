@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import './Contenido.scss';
 import bg1 from '../../assets/static/1.png';
 import bg2 from '../../assets/static/2.png';
@@ -7,7 +8,8 @@ import bgm1 from '../../assets/static/m1.png';
 import bgm2 from '../../assets/static/m2.png';
 import bgm3 from '../../assets/static/m3.png';
 
-const Contenido = ({ children }) => {
+const Contenido = (props) => {
+  const { children } = props;
   const [bg, setBg] = useState(bg1);
   const [bgm, setBgm] = useState(bgm1);
 
@@ -33,5 +35,4 @@ const Contenido = ({ children }) => {
     </section>
   );
 };
-
-export default Contenido;
+export default connect(null, null)(Contenido);

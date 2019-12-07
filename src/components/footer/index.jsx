@@ -7,6 +7,26 @@ import Icons from '../icons';
 
 const Footer = ({ dir }) => {
   const isLogger = FirebaseApp.auth().currentUser;
+
+  {
+    isLogger ? (
+      <Link to='/eventos' className='Footer__btn'>
+        {dir !== '/eventos' ?
+          (
+            <button type='button' className='button'>+</button>
+          ) : (
+            <button type='button' className='button-aceptar'>
+              ✔
+            </button>
+          )}
+        {/* <img src={btnMas} alt='accion' /> */}
+      </Link>
+    ) : (
+      <Link to='/auth' className='Footer__btn'>
+        <button type='button' className='button'>+</button>
+      </Link>
+    );
+  }
   return (
     dir !== '/eventos' && (
       <section className='Footer'>
@@ -16,17 +36,15 @@ const Footer = ({ dir }) => {
         <Link to='/personas' className='Footer__personas'>
           <Icons type='personas' dir={dir} />
         </Link>
-        <Link to='/eventos' className='Footer__btn'>
-          {dir !== '/eventos' ?
-            (
-              <button type='button' className='button'>+</button>
-            ) : (
-              <button type='button' className='button-aceptar'>
-                ✔
-              </button>
-            )}
-          {/* <img src={btnMas} alt='accion' /> */}
-        </Link>
+        {isLogger ? (
+          <Link to='/eventos' className='Footer__btn'>
+            <button type='button' className='button'>+</button>
+          </Link>
+        ) : (
+          <Link to='/auth' className='Footer__btn'>
+            <button type='button' className='button'>+</button>
+          </Link>
+        )}
         <Link to='/lugares' className='Footer__lugares'>
           <Icons type='lugares' dir={dir} />
         </Link>

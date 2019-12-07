@@ -7,9 +7,20 @@ const Input = (props) => {
     case 'email':
       return (
         <input
-          className='Input__email Input'
+          className='Input__oscuro Input'
           placeholder='Correo electronico'
           type='email'
+          name={name.toUpperCase()}
+          onChange={onChange}
+          required
+        />
+      );
+    case 'oscuro':
+      return (
+        <input
+          className='Input__oscuro Input'
+          placeholder={placeholder}
+          type='text'
           name={name.toUpperCase()}
           onChange={onChange}
           required
@@ -18,7 +29,7 @@ const Input = (props) => {
     case 'password':
       return (
         <input
-          className='Input__password Input'
+          className='Input__oscuro Input'
           placeholder='Contraseña'
           type='password'
           name={name.toUpperCase()}

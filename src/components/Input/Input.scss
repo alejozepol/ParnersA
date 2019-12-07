@@ -1,4 +1,4 @@
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/variables.scss";
 
 .Input {
   width: 80%;
@@ -10,6 +10,44 @@
   background: transparent;
   &__standar {
     border: 1px solid $color-oscuro !important;
+  }
+  &__oscuro {
+    border: 1px solid $color-claro-primario !important;
+    color: $color-claro-primario !important;
+    @extend .sombraPrimario;
+    &::placeholder {
+      text-align: center;
+      color: $color-claro-primario !important;
+    }
+    &:focus {
+      text-align: center;
+      color: $color-claro-primario !important;
+    }
+    &:active &:focus-within &:visited &:-webkit-autofill {
+      color: $color-claro-primario !important;
+    }
+
+    &:hover {
+      border: 1px solid $color-primario !important;
+      color: $color-claro-primario !important;
+      transition: 450ms all;
+      text-align: center;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      text-align: center;
+      border: 1px solid $color-primario !important;
+      -webkit-text-fill-color: $color-claro-primario !important;;
+      color: $color-claro-primario !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
   &::placeholder {
     text-align: center;

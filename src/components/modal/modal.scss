@@ -16,7 +16,7 @@
     background-color: fade-out($color: $color-oscuro, $amount: 0.2);
     color: $color-claro-primario;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 10% 80% 10%;
     grid-template-rows: 20% 60% 20%;;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,7 @@
       grid-column-end: 3;
       grid-row-start: 2;
       grid-row-end: 3;
+      height: 100%;
     }
     & i {
       grid-column-start: 3;

@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
@@ -5,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
 import Button from '../components/button';
 import Modal from '../components/modal';
+import Register from '../components/register';
 import Logo from '../assets/static/Logo2.png';
 import '../assets/styles/auth.scss';
 
@@ -51,7 +53,7 @@ const Auth = (props) => {
   const [modalRegister, setModalRegister] = useState({
     title: '',
     messager: '',
-    view: false,
+    view: true,
   });
   const viewModalRegister = () => {
     modalRegister.view ? setModalRegister({
@@ -80,36 +82,40 @@ const Auth = (props) => {
     <Contenido>
       <section className='Auth'>
         {modalRegister.view && (
-          <Modal close={() => viewModalRegister()}>
-            sasa
+          <Modal
+            img={Logo}
+            title='Entrenemos Juntos'
+            close={() => viewModalRegister()}
+          >
+            <Register history={props.history} />
           </Modal>
         )}
         {modalLogIn.view && (
           <Modal close={() => viewModalLogIn()}>
             sasa
           </Modal>
-      )}
+        )}
         <img className='Auth__img' src={Logo} alt='Logo Parners' />
-      <div className='Auth__text'>
-        <h2 className='Auth__title'>{text.title}</h2>
-        <h3 className='Auth__frase'>{text.frase}</h3>
-      </div>
-      <div className='Auth__btn'>
-        <Button
-          type='button'
-          onClick={() => viewModalRegister()}
-        >
-          Empieza ya
+        <div className='Auth__text'>
+          <h2 className='Auth__title'>{text.title}</h2>
+          <h3 className='Auth__frase'>{text.frase}</h3>
+        </div>
+        <div className='Auth__btn'>
+          <Button
+            type='button'
+            onClick={() => viewModalRegister()}
+          >
+            Empieza ya
           </Button>
-        <Button
-          type='button-claro'
-          onClick={() => viewModalLogIn()}
-        >
-          Log in
+          <Button
+            type='button-claro'
+            onClick={() => viewModalLogIn()}
+          >
+            Log in
           </Button>
-      </div>
+        </div>
       </section>
-    </Contenido >
+    </Contenido>
   );
 };
 
