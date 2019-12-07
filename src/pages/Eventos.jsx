@@ -33,7 +33,7 @@ const Eventos = (props) => {
         <Card img={portada} key={e.id}>
           <div className='Eventos_content'>
             <Link to={`evento/${e.id}`}>
-              <h3>{e.TITULO}</h3>
+              <h4>{e.TITULO}</h4>
               <h4>
                 <img src={Ubicacion} alt='Ubicacion' />
                 {`  ${e.UBICACION}`}

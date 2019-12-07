@@ -7,7 +7,6 @@ import Ubicacion from '../assets/icons/Ubicacion.png';
 import '../assets/styles/Persona.scss';
 
 const Persona = (props) => {
-  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
   const { id } = props.match.params;
   const colectionPersonas = FirebaseApp.firestore().collection('user');
   const [personaDB, setPersonaDB] = useState([]);
