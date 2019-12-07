@@ -16,7 +16,6 @@ const evento = (props) => {
     const Evento = colectionEventos.doc(id).get()
       .then((data) => setEventoDB(data.data()))
       .catch((e) => console.log(e));
-    return () => Evento();
   }, []);
   return (
     <section className='Evento'>
@@ -50,7 +49,7 @@ const evento = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    evento: [...state.evento],
+
   };
 
 };
