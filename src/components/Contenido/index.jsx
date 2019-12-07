@@ -13,6 +13,7 @@ const Contenido = (props) => {
   const [bg, setBg] = useState(bg1);
   const [bgm, setBgm] = useState(bgm1);
 
+  // eslint-disable-next-line eqeqeq
   if (bg == bg1) {
     setTimeout(() => {
       setBg(bg2);

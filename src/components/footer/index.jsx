@@ -2,7 +2,6 @@ import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../../services/firebase/index';
-import btnMas from '../../assets/static/btn_mas.png';
 import Icons from '../icons';
 
 const Footer = ({ dir }) => {

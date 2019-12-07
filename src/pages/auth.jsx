@@ -2,7 +2,6 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Contenido from '../components/Contenido';
 import Button from '../components/button';
 import Modal from '../components/modal';
