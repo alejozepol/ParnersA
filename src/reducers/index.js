@@ -4,7 +4,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         evento: state.evento ||
-            [],
+          [],
+      };
+    case 'LOGIN_REQUEST':
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

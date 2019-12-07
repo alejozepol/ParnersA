@@ -23,7 +23,6 @@ const Register = (props) => {
       .set(info)
       .then()
       .catch((error) => error);
-    sessionStorage.setItem('email', info.EMAIL);
   }
   const viewModal = () => {
     modal.view ? setModal({
@@ -40,6 +39,7 @@ const Register = (props) => {
       .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
       .then((res) => {
         delete form.PASSWORD;
+        props.loginRequest(form);
         form.uid = res.user.uid;
         res.user.sendEmailVerification({
           url: 'https://parners.co',
@@ -77,13 +77,14 @@ const Register = (props) => {
   function loginGoogle() {
     FirebaseApp
       .auth()
-      .signInWithPopup(new firebaseApp.auth.GoogleAuthProvider())
+      .signInWithPopup(new FirebaseApp.auth.GoogleAuthProvider())
       .then((res) => {
         form.photoURL = res.user.photoURL;
         form.name = res.user.displayName;
         form.id = res.user.uid;
         form.EMAIL = res.user.email;
         createUsuarBD(form);
+        props.loginRequest(form);
         props.history.push('/');
       })
       .catch((error) => {

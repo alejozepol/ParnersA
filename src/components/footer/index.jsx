@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../../services/firebase/index';
@@ -6,26 +6,18 @@ import Icons from '../icons';
 
 const Footer = ({ dir }) => {
   const isLogger = FirebaseApp.auth().currentUser;
+  const colectionUser = FirebaseApp.firestore().collection('user');
+  const [user, setUser] = useState({
+    email: 'a@a.com',
+  });
 
-  {
-    isLogger ? (
-      <Link to='/eventos' className='Footer__btn'>
-        {dir !== '/eventos' ?
-          (
-            <button type='button' className='button'>+</button>
-          ) : (
-            <button type='button' className='button-aceptar'>
-              ✔
-            </button>
-          )}
-        {/* <img src={btnMas} alt='accion' /> */}
-      </Link>
-    ) : (
-      <Link to='/auth' className='Footer__btn'>
-        <button type='button' className='button'>+</button>
-      </Link>
-    );
-  }
+  useEffect(() => {
+    const listUser = colectionUser.doc(user.email).get()
+      .then((data) => setUser(data.data()))
+      .catch((e) => console.log(e));
+    return () => listUser();
+  }, []);
+
   return (
     dir !== '/eventos' && (
       <section className='Footer'>

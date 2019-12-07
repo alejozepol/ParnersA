@@ -32,14 +32,13 @@ const Login = (props) => {
       .set(info)
       .then()
       .catch((error) => error);
-
-    sessionStorage.setItem('email', info.EMAIL);
   }
   function loginEmailPassword(form) {
     FirebaseApp.auth()
       .signInWithEmailAndPassword(form.EMAIL, form.PASSWORD)
       .then((res) => {
         props.history.push('/');
+        props.loginRequest(form);
       })
       .catch((error) => {
         viewModal();
@@ -74,6 +73,7 @@ const Login = (props) => {
         form.id = res.user.uid;
         form.EMAIL = res.user.email;
         createUsuarBD(form);
+        props.loginRequest(form);
         props.history.push('/');
       })
       .catch((error) => {

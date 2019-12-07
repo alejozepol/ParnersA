@@ -2,6 +2,7 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { loginRequest } from '../actions';
 import Contenido from '../components/Contenido';
 import Button from '../components/button';
 import Modal from '../components/modal';
@@ -87,7 +88,7 @@ const Auth = (props) => {
             title='Entrenemos Juntos'
             close={() => viewModalRegister()}
           >
-            <Register history={props.history} />
+            <Register history={props.history} loginRequest={props.loginRequest} />
           </Modal>
         )}
         {modalLogIn.view && (
@@ -96,7 +97,7 @@ const Auth = (props) => {
             title='Entrenemos Juntos'
             close={() => viewModalLogIn()}
           >
-            <Login history={props.history}/>
+            <Login history={props.history} loginRequest={props.loginRequest} />
           </Modal>
         )}
         <img className='Auth__img' src={Logo} alt='Logo Parners' />
@@ -122,5 +123,7 @@ const Auth = (props) => {
     </Contenido>
   );
 };
-
-export default connect(null, null)(Auth);
+const mapDispatchToProps = {
+  loginRequest,
+};
+export default connect(null, mapDispatchToProps)(Auth);
