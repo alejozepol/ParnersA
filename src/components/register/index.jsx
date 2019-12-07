@@ -23,6 +23,7 @@ const Register = (props) => {
       .set(info)
       .then()
       .catch((error) => error);
+    sessionStorage.setItem('email', info.EMAIL);
   }
   const viewModal = () => {
     modal.view ? setModal({
@@ -74,9 +75,9 @@ const Register = (props) => {
   };
 
   function loginGoogle() {
-    firebase
+    FirebaseApp
       .auth()
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .signInWithPopup(new firebaseApp.auth.GoogleAuthProvider())
       .then((res) => {
         form.photoURL = res.user.photoURL;
         form.name = res.user.displayName;

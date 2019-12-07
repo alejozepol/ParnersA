@@ -25,7 +25,16 @@ const Login = (props) => {
       view: true,
     });
   };
+  function createUsuarBD(info) {
+    FirebaseApp.firestore()
+      .collection('user')
+      .doc(info.EMAIL)
+      .set(info)
+      .then()
+      .catch((error) => error);
 
+    sessionStorage.setItem('email', info.EMAIL);
+  }
   function loginEmailPassword(form) {
     FirebaseApp.auth()
       .signInWithEmailAndPassword(form.EMAIL, form.PASSWORD)
@@ -56,9 +65,9 @@ const Login = (props) => {
   }
 
   function loginGoogle() {
-    firebase
+    FirebaseApp
       .auth()
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .signInWithPopup(new FirebaseApp.auth.GoogleAuthProvider())
       .then((res) => {
         form.photoURL = res.user.photoURL;
         form.name = res.user.displayName;
