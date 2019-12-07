@@ -12,12 +12,10 @@
   position: fixed;
   bottom: 0%;
   @extend .sombraOscura;
-  &__perfil-img{
-    > img{
+  &_perfil-img{
       height: 40px;
       width: 40px;
       border-radius: 30px;
-  }
   }
   &__eventos {
     grid-column-start: 2;

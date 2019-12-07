@@ -37,8 +37,8 @@ const Login = (props) => {
     FirebaseApp.auth()
       .signInWithEmailAndPassword(form.EMAIL, form.PASSWORD)
       .then((res) => {
-        props.history.push('/');
         props.loginRequest(form);
+        props.history.push('/');
       })
       .catch((error) => {
         viewModal();

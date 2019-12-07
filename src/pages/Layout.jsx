@@ -6,6 +6,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 const Layout = (props) => {
+  const { user } = props;
   return (
     <section className='Layout'>
       <div className='Layout__header'>
@@ -15,10 +16,15 @@ const Layout = (props) => {
         {props.children}
       </div>
       <div className='Layout__footer'>
-        <Footer dir={props.location.pathname} />
+        <Footer dir={props.location.pathname} photoURL={user.photoURL} />
       </div>
     </section>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
 
-export default connect(null, null)(Layout);
+export default connect(mapStateToProps, null)(Layout);
