@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../../services/firebase/index';
@@ -6,7 +6,6 @@ import Icons from '../icons';
 
 const Footer = ({ dir, photoURL }) => {
   const isLogger = FirebaseApp.auth().currentUser;
-  console.log(photoURL)
   return (
     dir !== '/eventos' && (
       <section className='Footer'>
@@ -21,10 +20,10 @@ const Footer = ({ dir, photoURL }) => {
             <button type='button' className='button'>+</button>
           </Link>
         ) : (
-            <Link to='/auth' className='Footer__btn'>
-              <button type='button' className='button'>+</button>
-            </Link>
-          )}
+          <Link to='/auth' className='Footer__btn'>
+            <button type='button' className='button'>+</button>
+          </Link>
+        )}
         <Link to='/lugares' className='Footer__lugares'>
           <Icons type='lugares' dir={dir} />
         </Link>
@@ -37,15 +36,15 @@ const Footer = ({ dir, photoURL }) => {
                 className='Footer_perfil-img'
               />
             ) : (
-                <Icons type='perfil' dir={dir} />
-              )}
+              <Icons type='perfil' dir={dir} />
+            )}
 
           </Link>
         ) : (
-            <Link to='/auth' className='Footer__perfil'>
-              <Icons type='perfil' dir='perfil' />
-            </Link>
-          )}
+          <Link to='/auth' className='Footer__perfil'>
+            <Icons type='perfil' dir='perfil' />
+          </Link>
+        )}
 
       </section>
     )

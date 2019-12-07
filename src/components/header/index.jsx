@@ -11,10 +11,10 @@ const Header = ({ dir, title }) => {
         {dir !== '/' && <Icons type='atras' />}
       </div>
       <div className='Header__logo'>
-        <img src={Logo} alt='Logo Parners' />
+        {dir === '/' && <img src={Logo} alt='Logo Parners' />}
       </div>
       <div className='Header__title'>
-        <h2>{title}</h2>
+        {dir !== '/' && <h2>{String(dir).slice(1).toLocaleUpperCase()}</h2>}
       </div>
       <div className='Header__isotipo'>
         {dir !== '/' && <img src={IsoTipo} alt='Logo Parners' />}
