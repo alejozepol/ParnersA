@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from '../pages/Layout';
 import Home from '../pages';
 import Personas from '../pages/Personas';
+import Persona from '../pages/Persona';
 import Lugares from '../pages/Lugares';
 import Perfil from '../pages/Perfil';
 import NuevoEventos from '../pages/NuevoEvento';
@@ -17,7 +18,7 @@ const App = () => (
         <Route exact path='/eventos' component={NuevoEventos} />
         <Route exact path='/evento/:id' component={Evento} />
         <Route exact path='/personas' component={Personas} />
-        <Route exact path='/persona/:id' component={Personas} />
+        <Route exact path='/persona/:id' component={Persona} />
         <Route exact path='/lugares' component={Lugares} />
         <Route exact path='/lugare/:id' component={Lugares} />
         <Route exact path='/perfil' component={Perfil} />

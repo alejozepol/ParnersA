@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+.Personas{
+  height: 100%;
+  & a{
+    color: $color-oscuro;
+  }
+  & p{
+    margin: 0%;
+  }
+  & > .Card {
+    & > img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &_content{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 5%;;
+    position: relative;
+    > p{
+      margin: 0%;
+    }
+    > button{
+      position: absolute;
+      bottom: 34%;
+      right: 6%;
+      font-size: 20px;
+      border-radius: 30%;
+      border-width: 1px;
+      background-color: $color-aceptar;
+      color: $color-claro-primario;
+      @extend .sombraOscura;
+    }
+  }
+
+}
