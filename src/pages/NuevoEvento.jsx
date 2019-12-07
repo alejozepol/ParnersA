@@ -9,6 +9,7 @@ import '../assets/styles/NuevoEvento.scss';
 const NuevoEventos = (props) => {
   const colectionDeportes = FirebaseApp.firestore().collection('deportes');
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
+  const islogin = FirebaseApp.auth().currentUser;
   const [deportes, setDeportes] = useState([]);
   const [form, setForm] = useState({ deportes: '' });
 
@@ -39,13 +40,14 @@ const NuevoEventos = (props) => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
+      creador: islogin.email,
+      date: Date.now(),
     });
-    console.log(form);
   };
   const handlSubmit = (event) => {
     event.preventDefault();
     CrearEvento(form);
-    props.history.push('/home');
+    props.history.push('/');
   };
   return (
     <section className='NuevoEvento'>
@@ -86,5 +88,10 @@ const NuevoEventos = (props) => {
 
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
 
-export default connect(null, null)(NuevoEventos);
+};
+export default connect(mapStateToProps, null)(NuevoEventos);

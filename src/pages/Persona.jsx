@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { FirebaseApp } from '../services/firebase/index';

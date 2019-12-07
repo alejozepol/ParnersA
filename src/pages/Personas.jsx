@@ -42,7 +42,6 @@ const Personas = (props) => {
 
               </h4>
             </Link>
-            <button type='button'>+</button>
           </div>
         </Card>
       ))}
