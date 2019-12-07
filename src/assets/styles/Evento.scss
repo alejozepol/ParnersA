@@ -1,14 +1,33 @@
 @import "./variables.scss";
 
+.suscribir{
+  background-color: $color-aceptar;
+  color: $color-claro-primario;
+}
+.unsuscrited{
+  background-color: $color-segundario;
+  color: $color-oscuro;
+}
 .Evento{
   height: 100%;
   width: 100%;
   & > .CardBig{
     display: grid;
     grid-template-rows: 30% 70%;
-    > img{
+    & div > img{
+      position: relative;
       height: 100%;
       width: 100%;
+    }
+    & div > button{
+      position: absolute;
+      left: 58%;
+      bottom: 65%;
+      font-size: 18px;
+      height: 3rem;
+      border-radius: 10px;
+      border-width: 1px;
+      @extend .sombraOscura;
     }
   }
   & > .CardBig > &_content{
@@ -20,17 +39,6 @@
     position: relative;
     > p{
       margin: 0%;
-    }
-    > button{
-      position: absolute;
-      bottom: 1%;
-      right: 6%;
-      font-size: 20px;
-      border-radius: 30%;
-      border-width: 1px;
-      background-color: $color-aceptar;
-      color: $color-claro-primario;
-      @extend .sombraOscura;
     }
   }
 
