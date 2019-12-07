@@ -1,0 +1,110 @@
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { FirebaseApp } from '../../services/firebase/index';
+import Input from '../Input';
+import Button from '../button';
+import Modal from '../modal';
+import './Register.scss';
+
+const Login = (props) => {
+  const [modal, setModal] = useState({
+    title: '',
+    messager: '',
+    view: false,
+  });
+  const [form, setForm] = useState({
+    EMAIL: '',
+    PASSWORD: '',
+  });
+  const viewModal = () => {
+    modal.view ? setModal({
+      ...modal,
+      view: false,
+    }) : setModal({
+      ...modal,
+      view: true,
+    });
+  };
+
+  function loginEmailPassword(form) {
+    FirebaseApp.auth()
+      .signInWithEmailAndPassword(form.EMAIL, form.PASSWORD)
+      .then((res) => {
+        props.history.push('/');
+      })
+      .catch((error) => {
+        viewModal();
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            setModal({
+              title: '😰¡Email ya registrado!😰',
+              messager: `El correo ${form.EMAIL} ya se encuentra registrado inicia sesion o registrate con otro correo`,
+              view: true,
+            });
+            setMessages('😰¡Email ya registrado!😰');
+            break;
+          default:
+            setModal({
+              title: '😰Ha ocurrido un error😰',
+              messager: `${error}`,
+              view: true,
+            });
+            break;
+        }
+      });
+
+  }
+
+  function loginGoogle() {
+    firebase
+      .auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((res) => {
+        form.photoURL = res.user.photoURL;
+        form.name = res.user.displayName;
+        form.id = res.user.uid;
+        form.EMAIL = res.user.email;
+        createUsuarBD(form);
+        props.history.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const handleInput = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handlSubmit = (event) => {
+    event.preventDefault();
+    loginEmailPassword(form);
+  };
+  return (
+    <section className='Register'>
+      {modal.view &&
+        <Modal close={() => viewModal()} title={modal.title} message={modal.messager} />}
+      <div>
+        <h2>Login</h2>
+      </div>
+      <form onSubmit={handlSubmit}>
+        <Input type='email' name='email' onChange={handleInput} />
+        <Input type='password' name='password' onChange={handleInput} />
+        <Button type='submit'>
+          Enviar
+        </Button>
+      </form>
+      <div className='Register__Botones'>
+        <Button type='img' onClick={() => loginGoogle()}>
+          <img src='https://www.freepnglogos.com/uploads/google-plus-png-logo/download-google-brand-vector-png-logos-18.png' alt='LogoWhatsapp' />
+          Google
+        </Button>
+      </div>
+    </section>
+  );
+};
+
+export default connect(null, null)(Login);

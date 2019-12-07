@@ -7,6 +7,7 @@ import Button from '../components/button';
 import Modal from '../components/modal';
 import Register from '../components/register';
 import Logo from '../assets/static/Logo2.png';
+import Login from '../components/login';
 import '../assets/styles/auth.scss';
 
 const Auth = (props) => {
@@ -52,7 +53,7 @@ const Auth = (props) => {
   const [modalRegister, setModalRegister] = useState({
     title: '',
     messager: '',
-    view: true,
+    view: false,
   });
   const viewModalRegister = () => {
     modalRegister.view ? setModalRegister({
@@ -90,8 +91,12 @@ const Auth = (props) => {
           </Modal>
         )}
         {modalLogIn.view && (
-          <Modal close={() => viewModalLogIn()}>
-            sasa
+          <Modal
+            img={Logo}
+            title='Entrenemos Juntos'
+            close={() => viewModalLogIn()}
+          >
+            <Login history={props.history}/>
           </Modal>
         )}
         <img className='Auth__img' src={Logo} alt='Logo Parners' />
