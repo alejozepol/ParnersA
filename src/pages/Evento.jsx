@@ -28,11 +28,16 @@ const evento = (props) => {
   }, []);
   useEffect(() => {
     email === 'undefined' && 'a@a.com';
+    let info = []
     const EventoUsuario = colectionEventoUsuario.doc(email).get()
-      .then((data) => setEventoUsuarioBD(data.data()))
+      .then((data) => {
+        info.push(data.data())
+        info.filter((i) => i.idEvento === id)
+        setEventoUsuarioBD(info)
+      })
       .catch((e) => console.log(e));
   }, []);
-
+  console.log(eventoDB)
   function suscripcion() {
     let info = eventoUsuarioBD;
     if (eventoUsuarioBD) {
@@ -58,8 +63,8 @@ const evento = (props) => {
           {eventoUsuarioBD.isTrue ? (
             <button type='button' className='unsuscrited' onClick={() => suscripcion()}>No Aistire</button>
           ) : (
-            <button type='button' className='suscribir' onClick={() => suscripcion()}>Inscribirme</button>
-          )}
+              <button type='button' className='suscribir' onClick={() => suscripcion()}>Inscribirme</button>
+            )}
         </div>
         <div className='Evento_content'>
           <div>

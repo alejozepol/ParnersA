@@ -216,6 +216,7 @@ captures/
 
 # Google Services (e.g. APIs or Firebase)
 .firebase/
+/.firebase/
 # google-services.json
 
 # Freeline
@@ -343,3 +344,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/react,linux,macos,windows,reactnative
+.firebase/*.*
