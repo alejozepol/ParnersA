@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import Icons from '../icons';
@@ -19,10 +19,10 @@ const Footer = ({ dir }) => {
             <button type='button' className='button'>+</button>
           </Link>
         ) : (
-            <Link to='/auth' className='Footer__btn'>
-              <button type='button' className='button'>+</button>
-            </Link>
-          )}
+          <Link to='/auth' className='Footer__btn'>
+            <button type='button' className='button'>+</button>
+          </Link>
+        )}
         <Link to='/lugares' className='Footer__lugares'>
           <Icons type='lugares' dir={dir} />
         </Link>
@@ -35,15 +35,15 @@ const Footer = ({ dir }) => {
                 className='Footer_perfil-img'
               />
             ) : (
-                <Icons type='perfil' dir={dir} />
-              )}
+              <Icons type='perfil' dir={dir} />
+            )}
 
           </Link>
         ) : (
-            <Link to='/auth' className='Footer__perfil'>
-              <Icons type='perfil' dir='perfil' />
-            </Link>
-          )}
+          <Link to='/auth' className='Footer__perfil'>
+            <Icons type='perfil' dir='perfil' />
+          </Link>
+        )}
 
       </section>
     )
