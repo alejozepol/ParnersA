@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../services/firebase/index';
+import { getEvento } from '../actions';
 import Card from '../container/Card';
 import portada from '../assets/static/football.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
@@ -12,6 +13,7 @@ const Eventos = (props) => {
   const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
   const [eventosDB, setEventosDB] = useState([]);
+
   useEffect(() => {
     const listEvento = colectionEventos.onSnapshot(({ docs }) => {
       const eventosFromDB = [];
@@ -27,6 +29,7 @@ const Eventos = (props) => {
     });
     return () => listEvento();
   }, []);
+
   return (
     <section className='Eventos'>
       {eventosDB.map((e) => (
@@ -55,4 +58,7 @@ const Eventos = (props) => {
 
 };
 
-export default connect(null, null)(Eventos);
+const mapDispatchToProps = {
+};
+
+export default connect(null, mapDispatchToProps)(Eventos);

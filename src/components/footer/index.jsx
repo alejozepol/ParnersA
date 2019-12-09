@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
-import { FirebaseApp } from '../../services/firebase/index';
 import Icons from '../icons';
 
-const Footer = ({ dir, photoURL }) => {
-  const isLogger = FirebaseApp.auth().currentUser;
+const Footer = ({ dir }) => {
+  const user = JSON.parse(sessionStorage.getItem('user'));
   return (
     dir !== '/eventos' && (
       <section className='Footer'>
@@ -15,36 +14,36 @@ const Footer = ({ dir, photoURL }) => {
         <Link to='/personas' className='Footer__personas'>
           <Icons type='personas' dir={dir} />
         </Link>
-        {isLogger ? (
+        {user.login ? (
           <Link to='/eventos' className='Footer__btn'>
             <button type='button' className='button'>+</button>
           </Link>
         ) : (
-          <Link to='/auth' className='Footer__btn'>
-            <button type='button' className='button'>+</button>
-          </Link>
-        )}
+            <Link to='/auth' className='Footer__btn'>
+              <button type='button' className='button'>+</button>
+            </Link>
+          )}
         <Link to='/lugares' className='Footer__lugares'>
           <Icons type='lugares' dir={dir} />
         </Link>
-        {isLogger ? (
+        {user.login ? (
           <Link to='/perfil' className='Footer__perfil'>
-            {photoURL ? (
+            {user.photoURL ? (
               <img
-                src={photoURL}
-                alt={photoURL}
+                src={user.photoURL}
+                alt={user.name}
                 className='Footer_perfil-img'
               />
             ) : (
-              <Icons type='perfil' dir={dir} />
-            )}
+                <Icons type='perfil' dir={dir} />
+              )}
 
           </Link>
         ) : (
-          <Link to='/auth' className='Footer__perfil'>
-            <Icons type='perfil' dir='perfil' />
-          </Link>
-        )}
+            <Link to='/auth' className='Footer__perfil'>
+              <Icons type='perfil' dir='perfil' />
+            </Link>
+          )}
 
       </section>
     )

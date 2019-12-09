@@ -14,6 +14,26 @@ class Firebase {
         .enablePersistence({ synchronizeTabs: true })
         .catch((err) => console.log(err));
     }
+    FirebaseApp.auth().onAuthStateChanged((user) => {
+      if (user) {
+        sessionStorage.setItem('user', JSON.stringify({
+          login: true,
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          phoneNumber: user.providerData[0].phoneNumber,
+          photoURL: user.photoURL,
+        }));
+      } else {
+        sessionStorage.setItem('user', JSON.stringify({
+          login: false,
+          uid: 0,
+          name: '',
+          email: 'a',
+          photoURL: '',
+        }));
+      }
+    });
   }
 }
 

@@ -1,12 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { connect } from 'react-redux';
-import '../assets/styles/Layout.scss';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../assets/styles/Layout.scss';
 
 const Layout = (props) => {
-  const { user } = props;
   return (
     <section className='Layout'>
       <div className='Layout__header'>
@@ -16,15 +15,10 @@ const Layout = (props) => {
         {props.children}
       </div>
       <div className='Layout__footer'>
-        <Footer dir={props.location.pathname} photoURL={user.photoURL} />
+        <Footer dir={props.location.pathname} />
       </div>
     </section>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
 
-export default connect(mapStateToProps, null)(Layout);
+export default connect(null, null)(Layout);

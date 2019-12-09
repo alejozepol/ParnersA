@@ -72,8 +72,7 @@ const Login = (props) => {
         form.name = res.user.displayName;
         form.id = res.user.uid;
         form.EMAIL = res.user.email;
-        createUsuarBD(form);
-        props.loginRequest(form);
+        createUsuarBD(form);     
         props.history.push('/');
       })
       .catch((error) => {

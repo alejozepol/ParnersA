@@ -39,7 +39,6 @@ const Register = (props) => {
       .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
       .then((res) => {
         delete form.PASSWORD;
-        props.loginRequest(form);
         form.uid = res.user.uid;
         res.user.sendEmailVerification({
           url: 'https://parners.co',
@@ -84,7 +83,6 @@ const Register = (props) => {
         form.id = res.user.uid;
         form.EMAIL = res.user.email;
         createUsuarBD(form);
-        props.loginRequest(form);
         props.history.push('/');
       })
       .catch((error) => {
