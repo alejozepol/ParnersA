@@ -1,6 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { FirebaseApp } from '../services/firebase/index';
+import { FirebaseApp } from '../services/firebase';
 import CardBig from '../container/cardBig';
 import Button from '../components/button';
 import portada from '../assets/static/football_detalle.png';
@@ -11,60 +12,75 @@ import '../assets/styles/Evento.scss';
 const evento = (props) => {
   const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
   const { id } = props.match.params;
+  const user = JSON.parse(sessionStorage.getItem('user'));
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
   const colectionEventoUsuario = FirebaseApp.firestore().collection('eventoUsuario');
-  const { email } = FirebaseApp.auth().currentUser;
-  const [eventoDB, setEventoDB] = useState({
-    isTrue: false,
-    email,
-    idEvento: id,
-  });
-  const [eventoUsuarioBD, setEventoUsuarioBD] = useState([]);
+  const [eventoDB, setEventoDB] = useState([]);
+  const [btnEvento, setBtnEvento] = useState(false);
 
   useEffect(() => {
     const Evento = colectionEventos.doc(id).get()
       .then((data) => setEventoDB(data.data()))
+      .then(
+        colectionEventoUsuario
+          .where('email', '==', user.email)
+          .where('idEvento', '==', id)
+          .get()
+          .then((data) => {
+            if (data.size) {
+              data.forEach((doc) => {
+                const dataDoc = doc.data();
+                setBtnEvento(dataDoc.isTrue);
+              });
+            }
+          })
+          .catch((e) => console.log(e)),
+      )
       .catch((e) => console.log(e));
   }, []);
-  useEffect(() => {
-    email === 'undefined' && 'a@a.com';
-    let info = []
-    const EventoUsuario = colectionEventoUsuario.doc(email).get()
+
+  function suscripcion() {
+    colectionEventoUsuario
+      .where('email', '==', user.email)
+      .where('idEvento', '==', id)
+      .get()
       .then((data) => {
-        info.push(data.data())
-        info.filter((i) => i.idEvento === id)
-        setEventoUsuarioBD(info)
+        if (data.size) {
+          data.forEach((doc) => {
+            const dataDoc = doc.data();
+            dataDoc.isTrue ? dataDoc.isTrue = false : dataDoc.isTrue = true;
+            setBtnEvento(dataDoc.isTrue);
+            colectionEventoUsuario
+              .doc(doc.id)
+              .set(dataDoc)
+              .then()
+              .catch((error) => error);
+          });
+
+        } else {
+          const info = {
+            email: user.email,
+            idEvento: id,
+            isTrue: true,
+          };
+          colectionEventoUsuario
+            .add(info)
+            .then()
+            .catch((e) => console.log(e));
+        }
       })
       .catch((e) => console.log(e));
-  }, []);
-  console.log(eventoDB)
-  function suscripcion() {
-    let info = eventoUsuarioBD;
-    if (eventoUsuarioBD) {
-      info.isTrue ? info.isTrue = false : info.isTrue = true;
-    } else {
-      info = {
-        isTrue: true,
-        email,
-        idEvento: id,
-      };
-    }
-    colectionEventoUsuario
-      .doc(email)
-      .set(info)
-      .then()
-      .catch((error) => error);
   }
   return (
     <section className='Evento'>
       <CardBig>
         <div>
           <img src={portada} alt={portada} />
-          {eventoUsuarioBD.isTrue ? (
+          {btnEvento ? (
             <button type='button' className='unsuscrited' onClick={() => suscripcion()}>No Aistire</button>
           ) : (
-              <button type='button' className='suscribir' onClick={() => suscripcion()}>Inscribirme</button>
-            )}
+            <button type='button' className='suscribir' onClick={() => suscripcion()}>Inscribirme</button>
+          )}
         </div>
         <div className='Evento_content'>
           <div>
@@ -95,6 +111,7 @@ const evento = (props) => {
 const mapStateToProps = (state) => {
   return {
     ...state,
+    user: state.user,
   };
 
 };

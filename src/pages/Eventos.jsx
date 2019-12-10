@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../services/firebase/index';
-import { getEvento } from '../actions';
 import Card from '../container/Card';
 import portada from '../assets/static/football.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
