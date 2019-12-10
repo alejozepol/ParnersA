@@ -9,6 +9,7 @@
     > img{
       height: 100%;
       width: 100%;
+      clip-path: polygon(100% 0%, 100% 56%, 0% 100%, 0% 0%);
     }
   }
   & > .CardBig > &_content{

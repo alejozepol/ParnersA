@@ -20,7 +20,7 @@ const Persona = (props) => {
   return (
     <section className='Persona'>
       <CardBig>
-        <img src={portada} alt={portada} />
+        <img src='https://picsum.photos/200/300' alt='portada' />
         <div className='Persona_content'>
           <div>
             <h3>{personaDB.name}</h3>
