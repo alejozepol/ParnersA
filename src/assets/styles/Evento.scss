@@ -1,25 +1,25 @@
 @import "./variables.scss";
 
-.suscribir{
+.suscribir {
   background-color: $color-aceptar;
   color: $color-claro-primario;
 }
-.unsuscrited{
+.unsuscrited {
   background-color: $color-segundario;
   color: $color-oscuro;
 }
-.Evento{
+.Evento {
   height: 100%;
   width: 100%;
-  & > .CardBig{
+  & > .CardBig {
     display: grid;
-    grid-template-rows: 30% 70%;
-    & div > img{
+    grid-template-rows: 20% 80%;
+    & div > img {
       position: relative;
       height: 100%;
       width: 100%;
     }
-    & div > button{
+    & div > button {
       position: absolute;
       left: 45%;
       bottom: 67%;
@@ -33,37 +33,76 @@
       @extend .sombraOscura;
     }
   }
-  & > .CardBig > &_content{
+  & > .CardBig > &_content {
     height: 100%;
     display: grid;
     grid-template-rows: 45% 25% 25%;
     align-self: center;
-    padding-left: 5%;;
+    padding-left: 5%;
     position: relative;
-    .Evento_content_asistente{
+    .Evento_content_top {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 3%;
+      border-bottom: 1px solid fade-out($color-oscuro, $opacity);
+      >h3{
+        border-bottom: 1px solid fade-out($color-oscuro, $opacity);
+      }
+      >h4{
+        margin-top: 5%;
+      }
+      > div {
+        width: 100%;
+        display: flex;
+        margin-top: 5%;
+        > p {
+          margin: 0%;
+        }
+        > img {
+          padding-right: 2%;
+          width: 15px;
+          height: 16px;
+        }
+      }
+    }
+    .Evento_content_descripcion {
+      display: grid;
+      margin: 3%;
+      grid-template-rows: 30% auto;
+      & > h4 {
+        text-align: center;
+      }
+      & >p {
+        margin: 0%;
+      }
+    }
+    .Evento_content_asistente {
       display: grid;
       position: relative;
+      margin: 3%;
       grid-template-rows: 30% auto;
-      &-content{
+      text-align: center;
+      border-top: 1px solid fade-out($color-oscuro, $opacity);
+      &-content {
         display: flex;
-        @extend .styleScroll;
-        &--item{
+        &--item {
           position: relative;
           width: 60px;
-          &>p{
+          @extend .styleScroll;
+          & > p {
             display: none;
             position: fixed;
             z-index: 3;
-            &:hover{
+            &:hover {
               display: line !important;
               background-color: fade-out($color-oscuro, 0.2);
               color: $color-claro-primario;
             }
-  
           }
         }
       }
     }
   }
-
 }

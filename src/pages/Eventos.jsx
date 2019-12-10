@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FirebaseApp } from '../services/firebase/index';
 import Card from '../container/Card';
-import portada from '../assets/static/football.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
 import Participantes from '../assets/icons/Participantes.png';
 import IconHora from '../assets/icons/Hora.png';
@@ -40,7 +39,7 @@ const Eventos = (props) => {
             }
           })
           .catch((e) => console.log(e)),
-          eventosFromDB.push(details);
+        eventosFromDB.push(details);
       });
       setEventosDB(eventosFromDB);
     });
@@ -50,31 +49,34 @@ const Eventos = (props) => {
   return (
     <section className='Eventos'>
       {eventosDB.map((e) => (
-        <Card key={e.id} img={`https://parners.co/iconsDeportes/${e.deporte}_1.png`}>
-          <div className='Eventos_content'>
-            <Link to={`evento/${e.id}`}>
+        <Link key={e.id} to={`evento/${e.id}`}>
+          <Card key={e.id} img={`https://parners.co/iconsDeportes/${e.deporte}_1.png`}>
+            <div className='Eventos_content'>
               <h3>{`${String(e.TITULO)}...`}</h3>
               <div className='Eventos_content_ubicacion'>
-                <img src={Ubicacion} alt='Ubicacion' />
-                <p>{`  ${e.UBICACION}`}</p>
-              </div>
+              <img src={Ubicacion} alt='Ubicacion' />
+              <p>{`  ${e.UBICACION}`}</p>
+            </div>
               <div className='Eventos_content_date'>
-                <img src={IconCalendario} alt='Calendario' />
-                <p>{` ${new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}  `}</p>
-                <img src={IconHora} alt='Hora' className='reloj-icon' />
-                <p>{` ${e.HORAINICIAL}`}</p>
-              </div>
+              <img src={IconCalendario} alt='Calendario' />
+              <p>{` ${new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}  `}</p>
+              <img src={IconHora} alt='Hora' className='reloj-icon' />
+              <p>{` ${e.HORAINICIAL}`}</p>
+            </div>
               <div className='Eventos_content_cupos'>
-                <img src={Participantes} alt='Ubicacion' />
-                <p>
-                  <b> {`${e.CUPOS} `} </b>
+              <img src={Participantes} alt='Ubicacion' />
+              <p>
+                  <b>
+                                        {' '}
+                                        {`${e.CUPOS} `}
+                                        {' '}
+                  </b>
                   Participantes
                 </p>
-              </div>
-
-            </Link>
-          </div>
-        </Card>
+            </div>
+            </div>
+          </Card>
+        </Link>
       ))}
 
     </section>

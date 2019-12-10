@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 import { FirebaseApp } from '../services/firebase';
 import CardBig from '../container/cardBig';
 import Button from '../components/button';
-import portada from '../assets/static/football_detalle.png';
+import PortadaDeportes from '../components/portadaDeportes';
 import Ubicacion from '../assets/icons/Ubicacion.png';
 import Participantes from '../assets/icons/Participantes.png';
+import IconHora from '../assets/icons/Hora.png';
+import IconCalendario from '../assets/icons/Calendario.png';
+import IconDuracion from '../assets/icons/Duracion.png';
 import '../assets/styles/Evento.scss';
-import PortadaDeportes from '../components/portadaDeportes';
 
 const evento = (props) => {
   const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -109,14 +111,14 @@ const evento = (props) => {
   return (
     <section className='Evento'>
       <CardBig>
-        <div>
+        <div className='Evento__portada'>
           <PortadaDeportes deporte={eventoDB.deporte} />
           {user.login && (
             btnEvento ? (
               <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
             ) : (
-              <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
-            )
+                <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
+              )
           )}
         </div>
         <div className='Evento_content'>
@@ -126,22 +128,25 @@ const evento = (props) => {
               <img src={Ubicacion} alt='Ubicacion' />
               {`  ${eventoDB.UBICACION}`}
             </h4>
-            <p>{eventoDB.DESCRIPCION}</p>
             <div>
-              <p>{new Date(eventoDB.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
-              <p>{eventoDB.HORAINICIAL}</p>
-              <p>
-                <img src={Ubicacion} alt='Ubicacion' />
-                {`  ${eventoDB.UBICACION}`}
-              </p>
+              <img src={IconCalendario} alt='Calendario' />
+              <p>{` ${new Date(eventoDB.FECHA).toLocaleDateString('es-ES', optionsDate)}  `}</p>
+            </div>
+            <div>
+              <img src={IconHora} alt='Hora' className='reloj-icon' />
+              <p>{` ${eventoDB.HORAINICIAL}`}</p>
+            </div>
+            <div>
+              <img src={IconDuracion} alt='Hora' className='duracion-icon' />
+              <p>{` ${eventoDB.DURACION}`}</p>
             </div>
           </div>
-          <div className='Evento_content_organizador'>
-            <h4>Organizador</h4>
-            <p>{infoCreador.name}</p>
+          <div className='Evento_content_descripcion'>
+            <h4>Descripción</h4>
+            <p>{eventoDB.DESCRIPCION}</p>
           </div>
           <div className='Evento_content_asistente'>
-            <h4>asistentes</h4>
+            <h4>Asistentes</h4>
             <div className='Evento_content_asistente-content'>
               {infoAsistentes.map((item) => (
                 <div key={item.id} className='Evento_content_asistente-content--item'>

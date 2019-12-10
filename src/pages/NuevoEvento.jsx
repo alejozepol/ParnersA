@@ -78,7 +78,7 @@ const NuevoEventos = (props) => {
             <Input type='number' name='cupos' placeholder='# de participante' onChange={handleInput} />
             <Input type='date' name='Fecha' placeholder='Fecha' onChange={handleInput} />
             <Input type='time' name='HoraInicial' placeholder='Hora Inicio' onChange={handleInput} />
-            <Input type='number' name='Duracion' placeholder='Duración' />
+            <Input type='number' name='Duracion' placeholder='Duración' onChange={handleInput} />
             <Input name='Ubicacion' placeholder='Ubicación' onChange={handleInput} />
           </div>
           <button type='submit'>Crear Evento</button>
