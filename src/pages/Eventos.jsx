@@ -6,10 +6,13 @@ import Card from '../container/Card';
 import portada from '../assets/static/football.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
 import Participantes from '../assets/icons/Participantes.png';
+import IconHora from '../assets/icons/Hora.png';
+import IconCalendario from '../assets/icons/Calendario.png';
+import IconDuracion from '../assets/icons/Duracion.png';
 import '../assets/styles/Eventos.scss';
 
 const Eventos = (props) => {
-  const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+  const optionsDate = { year: '2-digit', month: 'short', day: 'numeric' };
   const user = JSON.parse(sessionStorage.getItem('user'));
   const colectionEventoUsuario = FirebaseApp.firestore().collection('eventoUsuario');
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
@@ -37,7 +40,7 @@ const Eventos = (props) => {
             }
           })
           .catch((e) => console.log(e)),
-        eventosFromDB.push(details);
+          eventosFromDB.push(details);
       });
       setEventosDB(eventosFromDB);
     });
@@ -50,17 +53,25 @@ const Eventos = (props) => {
         <Card img={portada} key={e.id}>
           <div className='Eventos_content'>
             <Link to={`evento/${e.id}`}>
-              <h4>{e.TITULO}</h4>
-              <h4>
+              <h3>{`${String(e.TITULO)}...`}</h3>
+              <div className='Eventos_content_ubicacion'>
                 <img src={Ubicacion} alt='Ubicacion' />
-                {`  ${e.UBICACION}`}
-              </h4>
-              <p>{e.HORAINICIAL}</p>
-              <p>{new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
-              <p>
+                <p>{`  ${e.UBICACION}`}</p>
+              </div>
+              <div className='Eventos_content_date'>
+                <img src={IconCalendario} alt='Calendario' />
+                <p>{` ${new Date(e.FECHA).toLocaleDateString('es-ES', optionsDate)}  `}</p>
+                <img src={IconHora} alt='Hora' className='reloj-icon' />
+                <p>{` ${e.HORAINICIAL}`}</p>
+              </div>
+              <div className='Eventos_content_cupos'>
                 <img src={Participantes} alt='Ubicacion' />
-                {` ${e.CUPOS} Participantes`}
-              </p>
+                <p>
+                  <b> {`${e.CUPOS} `} </b>
+                  Participantes
+                </p>
+              </div>
+
             </Link>
             {!btnEvento && (
               <button type='button'>+</button>
