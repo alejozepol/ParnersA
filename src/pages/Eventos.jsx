@@ -73,9 +73,6 @@ const Eventos = (props) => {
               </div>
 
             </Link>
-            {!btnEvento && (
-              <button type='button'>+</button>
-            )}
           </div>
         </Card>
       ))}
