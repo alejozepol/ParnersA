@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/destructuring-assignment */
+/*v=spf1 include:_spf.colhost.com include:md02.com -all*/
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { FirebaseApp } from '../services/firebase';
@@ -109,11 +110,13 @@ const evento = (props) => {
       <CardBig>
         <div>
           <img src={portada} alt={portada} />
-          {btnEvento ? (
-            <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
-          ) : (
+          {user.login && (
+            btnEvento ? (
+              <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
+            ) : (
               <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
-            )}
+            )
+          )}
         </div>
         <div className='Evento_content'>
           <div className='Evento_content_top'>

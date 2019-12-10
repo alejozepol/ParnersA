@@ -7,7 +7,13 @@ import reducer from './reducers';
 import App from './routes';
 
 const composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
+sessionStorage.setItem('user', JSON.stringify({
+  login: false,
+  uid: 0,
+  name: '',
+  email: 'a',
+  photoURL: '',
+}));
 const initialState = {
   user: [],
   persona: [],
