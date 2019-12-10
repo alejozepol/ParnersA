@@ -16,13 +16,45 @@ const evento = (props) => {
   const user = JSON.parse(sessionStorage.getItem('user'));
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
   const colectionEventoUsuario = FirebaseApp.firestore().collection('eventoUsuario');
+  const colectionPersonas = FirebaseApp.firestore().collection('user');
   const [eventoDB, setEventoDB] = useState([]);
+  const [infoAsistentes, setInfoAsistentes] = useState([]);
+  const [infoCreador, setinfoCreador] = useState([]);
   const [btnEvento, setBtnEvento] = useState(false);
 
   useEffect(() => {
+    const datoAsistente = [];
+    colectionEventoUsuario.where('idEvento', '==', id)
+      .get()
+      .then((asistentes) => {
+        const _datoAsistente = [];
+        asistentes.forEach((asistenteDoc) => {
+          colectionPersonas.doc(asistenteDoc.data().email).get()
+            .then((dAsistente) => {
+              const detail = {
+                ...dAsistente.data(),
+              };
+              datoAsistente.push(detail);
+            })
+            .catch((e) => console.log(e));
+        });
+      })
+      .catch((e) => console.log(e));
+    setInfoAsistentes(datoAsistente);
+  }, []);
+
+  useEffect(() => {
     const Evento = colectionEventos.doc(id).get()
-      .then((data) => setEventoDB(data.data()))
-      .then(
+      .then((data) => {
+        setEventoDB(data.data());
+        const { creador } = data.data();
+        colectionPersonas.doc(creador).get()
+          .then((dataCreador) => {
+            setinfoCreador(dataCreador.data());
+          })
+          .catch((e) => console.log(e));
+      })
+      .then(() => {
         colectionEventoUsuario
           .where('email', '==', user.email)
           .where('idEvento', '==', id)
@@ -35,8 +67,8 @@ const evento = (props) => {
               });
             }
           })
-          .catch((e) => console.log(e)),
-      )
+          .catch((e) => console.log(e));
+      })
       .catch((e) => console.log(e));
   }, []);
 
@@ -90,18 +122,23 @@ const evento = (props) => {
               <img src={Ubicacion} alt='Ubicacion' />
               {`  ${eventoDB.UBICACION}`}
             </h4>
-            <p>{eventoDB.DESCRIPCION}</p>
+            {/*  <p>{eventoDB.DESCRIPCION}</p> */}
+            <div>
+              <p>{new Date(eventoDB.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
+              <p>{eventoDB.HORAINICIAL}</p>
+              <p>
+                <img src={Ubicacion} alt='Ubicacion' />
+                {`  ${eventoDB.UBICACION}`}
+              </p>
+            </div>
           </div>
           <div>
-            <p>{new Date(eventoDB.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
-            <p>{eventoDB.HORAINICIAL}</p>
-            <p>
-              <img src={Ubicacion} alt='Ubicacion' />
-              {`  ${eventoDB.UBICACION}`}
-            </p>
-          </div>
-          <div>
-            asistentes
+            <h4>Organizador</h4>
+            <p>{infoCreador.name}</p>
+            <h4>asistentes</h4>
+            {infoAsistentes.map((item) => (
+              <p key={item.id}>{item.name}</p>
+            ))}
           </div>
         </div>
       </CardBig>
