@@ -50,7 +50,7 @@ const Eventos = (props) => {
   return (
     <section className='Eventos'>
       {eventosDB.map((e) => (
-        <Card img={portada} key={e.id}>
+        <Card key={e.id} img={`https://parners.co/iconsDeportes/${e.deporte}_1.png`}>
           <div className='Eventos_content'>
             <Link to={`evento/${e.id}`}>
               <h3>{`${String(e.TITULO)}...`}</h3>

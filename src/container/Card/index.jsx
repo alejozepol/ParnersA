@@ -3,7 +3,7 @@ import './Card.scss';
 
 const Card = ({ children, name, img, onClick }) => (
   <section className='Card' onClick={onClick}>
-    <img src={img} alt={name} />
+    {img && <img src={img} alt={name} />}
     {children}
   </section>
 );
