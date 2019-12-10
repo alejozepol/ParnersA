@@ -110,19 +110,19 @@ const evento = (props) => {
         <div>
           <img src={portada} alt={portada} />
           {btnEvento ? (
-            <button type='button' className='unsuscrited' onClick={() => suscripcion()}>No Aistire</button>
+            <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
           ) : (
-            <button type='button' className='suscribir' onClick={() => suscripcion()}>Inscribirme</button>
-          )}
+              <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
+            )}
         </div>
         <div className='Evento_content'>
-          <div>
+          <div className='Evento_content_top'>
             <h3>{eventoDB.TITULO}</h3>
             <h4>
               <img src={Ubicacion} alt='Ubicacion' />
               {`  ${eventoDB.UBICACION}`}
             </h4>
-            {/*  <p>{eventoDB.DESCRIPCION}</p> */}
+            <p>{eventoDB.DESCRIPCION}</p>
             <div>
               <p>{new Date(eventoDB.FECHA).toLocaleDateString('es-ES', optionsDate)}</p>
               <p>{eventoDB.HORAINICIAL}</p>
@@ -132,13 +132,24 @@ const evento = (props) => {
               </p>
             </div>
           </div>
-          <div>
+          <div className='Evento_content_organizador'>
             <h4>Organizador</h4>
             <p>{infoCreador.name}</p>
+          </div>
+          <div className='Evento_content_asistente'>
             <h4>asistentes</h4>
-            {infoAsistentes.map((item) => (
-              <p key={item.id}>{item.name}</p>
-            ))}
+            <div className='Evento_content_asistente-content'>
+              {infoAsistentes.map((item) => (
+                <div className='Evento_content_asistente-content--item'>
+                  <p key={item.id}>{item.name}</p>
+                  <img
+                    src={item.photoURL}
+                    alt={item.name}
+                    className='img-redonda'
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </CardBig>

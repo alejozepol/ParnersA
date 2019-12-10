@@ -82,3 +82,11 @@ $font-size-primaria: 10px;
         margin: 0;
   }
 };
+
+.img-redonda {
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50%;
+  background-color: $color-claro-contraste;
+  @extend .sombraOscura;
+}

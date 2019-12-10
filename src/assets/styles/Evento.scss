@@ -21,24 +21,48 @@
     }
     & div > button{
       position: absolute;
-      left: 58%;
-      bottom: 65%;
+      left: 45%;
+      bottom: 67%;
       font-size: 18px;
       height: 3rem;
+      width: 9rem;
       border-radius: 10px;
       border-width: 1px;
+      color: $color-claro-primario;
+      font-weight: 900;
       @extend .sombraOscura;
     }
   }
   & > .CardBig > &_content{
     height: 100%;
     display: grid;
-    grid-template-rows: 50% 30% 20%;
+    grid-template-rows: 45% 25% 25%;
     align-self: center;
     padding-left: 5%;;
     position: relative;
-    > p{
-      margin: 0%;
+    .Evento_content_asistente{
+      display: grid;
+      position: relative;
+      grid-template-rows: 30% auto;
+      &-content{
+        display: flex;
+        @extend .styleScroll;
+        &--item{
+          position: relative;
+          width: 60px;
+          &>p{
+            display: none;
+            position: fixed;
+            z-index: 3;
+            &:hover{
+              display: line !important;
+              background-color: fade-out($color-oscuro, 0.2);
+              color: $color-claro-primario;
+            }
+  
+          }
+        }
+      }
     }
   }
 
