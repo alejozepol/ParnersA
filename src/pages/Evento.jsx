@@ -10,6 +10,7 @@ import portada from '../assets/static/football_detalle.png';
 import Ubicacion from '../assets/icons/Ubicacion.png';
 import Participantes from '../assets/icons/Participantes.png';
 import '../assets/styles/Evento.scss';
+import PortadaDeportes from '../components/portadaDeportes';
 
 const evento = (props) => {
   const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -109,7 +110,7 @@ const evento = (props) => {
     <section className='Evento'>
       <CardBig>
         <div>
-          <img src={portada} alt={portada} />
+          <PortadaDeportes deporte={eventoDB.deporte} />
           {user.login && (
             btnEvento ? (
               <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
@@ -143,8 +144,8 @@ const evento = (props) => {
             <h4>asistentes</h4>
             <div className='Evento_content_asistente-content'>
               {infoAsistentes.map((item) => (
-                <div className='Evento_content_asistente-content--item'>
-                  <p key={item.id}>{item.name}</p>
+                <div key={item.id} className='Evento_content_asistente-content--item'>
+                  <p>{item.name}</p>
                   <img
                     src={item.photoURL}
                     alt={item.name}

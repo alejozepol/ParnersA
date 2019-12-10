@@ -1,0 +1,20 @@
+@import '../../assets/styles/variables.scss';
+
+.PortadaDeportes{
+display: flex;
+position: relative;
+ &-fondo{
+   width: 100%;
+   height: 100%;
+   margin: 0%;
+   border-radius: 30px 0px 0px 30px;
+   background-size: cover;
+ }
+ &-icon{
+   position: absolute !important;
+   width: auto !important;
+   height: auto !important;
+   top: 55%;
+   left: 39%;
+ }
+}
