@@ -10,8 +10,11 @@ import '../assets/styles/Eventos.scss';
 
 const Eventos = (props) => {
   const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+  const user = JSON.parse(sessionStorage.getItem('user'));
+  const colectionEventoUsuario = FirebaseApp.firestore().collection('eventoUsuario');
   const colectionEventos = FirebaseApp.firestore().collection('eventos');
   const [eventosDB, setEventosDB] = useState([]);
+  const [btnEvento, setBtnEvento] = useState(false);
 
   useEffect(() => {
     const listEvento = colectionEventos.onSnapshot(({ docs }) => {
@@ -21,7 +24,19 @@ const Eventos = (props) => {
           id: doc.id,
           ...doc.data(),
         };
-
+        colectionEventoUsuario
+          .where('email', '==', user.email)
+          .where('idEvento', '==', details.id)
+          .get()
+          .then((data) => {
+            if (data.size) {
+              data.forEach((doc) => {
+                const dataDoc = doc.data();
+                setBtnEvento(dataDoc.isTrue);
+              });
+            }
+          })
+          .catch((e) => console.log(e)),
         eventosFromDB.push(details);
       });
       setEventosDB(eventosFromDB);
@@ -47,7 +62,9 @@ const Eventos = (props) => {
                 {` ${e.CUPOS} Participantes`}
               </p>
             </Link>
-            <button type='button'>+</button>
+            {!btnEvento && (
+              <button type='button'>+</button>
+            )}
           </div>
         </Card>
       ))}
