@@ -116,8 +116,8 @@ const evento = (props) => {
             btnEvento ? (
               <button type='button' className='unsuscrited' onClick={() => suscripcion()}>X Cancelar</button>
             ) : (
-                <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
-              )
+              <button type='button' className='suscribir' onClick={() => suscripcion()}>+ Asistir</button>
+            )
           )}
         </div>
         <div className='Evento_content'>

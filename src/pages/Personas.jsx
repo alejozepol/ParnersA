@@ -19,8 +19,6 @@ const Personas = (props) => {
           id: doc.id,
           ...doc.data(),
         };
-        console.log(details.EMAIL)
-        console.log(user.email)
         if (details.EMAIL !== user.email) {
           personasFromDB.push(details);
         }
