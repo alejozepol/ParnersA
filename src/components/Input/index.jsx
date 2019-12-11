@@ -93,7 +93,17 @@ const Input = (props) => {
           required
         />
       );
-    default:
+    case 'numberN':
+      return (
+        <input
+          className='Input'
+          placeholder={placeholder}
+          type={type}
+          name={name.toUpperCase()}
+          onChange={onChange}
+        />
+      );
+    case 'text':
       return (
         <input
           className='Input'
@@ -102,6 +112,16 @@ const Input = (props) => {
           name={name.toUpperCase()}
           onChange={onChange}
           required
+        />
+      );
+    default:
+      return (
+        <input
+          className='Input'
+          placeholder={placeholder}
+          type='text'
+          name={name.toUpperCase()}
+          onChange={onChange}
         />
       );
 

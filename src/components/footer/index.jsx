@@ -24,7 +24,7 @@ const Footer = ({ dir }) => {
           </Link>
         )}
         <Link to='/lugares' className='Footer__lugares'>
-          <Icons type='lugares' dir={dir} />
+          {/* <Icons type='lugares' dir={dir} /> */}
         </Link>
         {user.login ? (
           <Link to='/perfil' className='Footer__perfil'>

@@ -73,12 +73,12 @@ const NuevoEventos = (props) => {
           </div>
           <div className='NuevoEvento__form__detalle'>
             <h2>Detalles</h2>
-            <Input name='Titulo' placeholder='Titulo' onChange={handleInput} />
+            <Input type='text' name='Titulo' placeholder='Titulo' onChange={handleInput} />
             <Input name='Descripcion' placeholder='Descripción' onChange={handleInput} />
-            <Input type='number' name='cupos' placeholder='# de participante' onChange={handleInput} />
+            <Input type='numberN' name='cupos' placeholder='# de participante' onChange={handleInput} />
             <Input type='date' name='Fecha' placeholder='Fecha' onChange={handleInput} />
             <Input type='time' name='HoraInicial' placeholder='Hora Inicio' onChange={handleInput} />
-            <Input type='number' name='Duracion' placeholder='Duración' onChange={handleInput} />
+            <Input type='time' name='Duracion' placeholder='Duración' onChange={handleInput} />
             <Input name='Ubicacion' placeholder='Ubicación' onChange={handleInput} />
           </div>
           <button type='submit'>Crear Evento</button>

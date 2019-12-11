@@ -52,7 +52,4 @@ const Personas = (props) => {
 
 };
 
-const mapStateToProps = (state) => {
-};
-
-export default connect(mapStateToProps, null)(Personas);
+export default connect(null, null)(Personas);
