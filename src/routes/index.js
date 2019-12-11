@@ -24,7 +24,7 @@ const App = () => {
           <Route exact path='/lugares' component={Lugares} />
           <Route exact path='/lugare/:id' component={Lugares} />
           <Route exact path='/perfil' component={Perfil} />
-          <Route exact path='/auth' component={Auth} />
+          <Route exact path='/registro' component={Auth} />
         </Layout>
       </Switch>
     </BrowserRouter>

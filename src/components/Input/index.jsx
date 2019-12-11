@@ -21,7 +21,7 @@ const Input = (props) => {
           className='Input__oscuro Input'
           placeholder={placeholder}
           type='text'
-          name={name.toUpperCase()}
+          name={name}
           onChange={onChange}
           required
         />

@@ -62,7 +62,7 @@ const NuevoEventos = (props) => {
                 // eslint-disable-next-line jsx-a11y/label-has-associated-control
                 <label className='NuevoEvento__form__deportes-input' key={d.id}>
                   <input onChange={handleInput} type='radio' name='deporte' value={d.id} required />
-                  {form.deportes === d.id ? (
+                  {form.deporte === d.id ? (
                     <img src={d.iconA} alt={d.id} key={d.id} />
                   ) : (
                     <img src={d.iconI} alt={d.id} key={d.id} />
@@ -78,7 +78,7 @@ const NuevoEventos = (props) => {
             <Input type='numberN' name='cupos' placeholder='# de participante' onChange={handleInput} />
             <Input type='date' name='Fecha' placeholder='Fecha' onChange={handleInput} />
             <Input type='time' name='HoraInicial' placeholder='Hora Inicio' onChange={handleInput} />
-            <Input type='time' name='Duracion' placeholder='Duración' onChange={handleInput} />
+            <Input type='text' name='Duracion' placeholder='Duración' onChange={handleInput} />
             <Input name='Ubicacion' placeholder='Ubicación' onChange={handleInput} />
           </div>
           <button type='submit'>Crear Evento</button>

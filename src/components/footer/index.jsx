@@ -19,7 +19,7 @@ const Footer = ({ dir }) => {
             <button type='button' className='button'>+</button>
           </Link>
         ) : (
-          <Link to='/auth' className='Footer__btn'>
+          <Link to='/registro' className='Footer__btn'>
             <button type='button' className='button'>+</button>
           </Link>
         )}
@@ -40,7 +40,7 @@ const Footer = ({ dir }) => {
 
           </Link>
         ) : (
-          <Link to='/auth' className='Footer__perfil'>
+          <Link to='/registro' className='Footer__perfil'>
             <Icons type='perfil' dir='perfil' />
           </Link>
         )}

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/alejozepol/ParnersA#readme",
   "dependencies": {
+    "@alejozepol/gravatar": "^1.0.1",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FirebaseApp } from '../../services/firebase/index';
+import gravatar from '@alejozepol/gravatar';
 import Input from '../Input';
 import Button from '../button';
 import Modal from '../modal';
@@ -34,6 +35,10 @@ const Register = (props) => {
     });
   };
   const createUserWithEmailAndPassword = (user) => {
+    if (!user.photoURL) {
+      // eslint-disable-next-line no-param-reassign
+      user.photoURL = gravatar(user.EMAIL);
+    }
     FirebaseApp
       .auth()
       .createUserWithEmailAndPassword(user.EMAIL, user.PASSWORD)
@@ -43,6 +48,11 @@ const Register = (props) => {
         res.user.sendEmailVerification({
           url: 'https://parners.co',
         });
+        res.user.updateProfile({
+          displayName: user.name,
+          photoURL: user.photoURL,
+        });
+        console.log(res.user)
         setModal({
           title: 'Bienvenido',
           messager: `registro exitoso por favor revise su correo ${form.EMAIL} para terminar el registro`,
