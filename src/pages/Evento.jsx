@@ -31,7 +31,6 @@ const evento = (props) => {
     colectionEventoUsuario.where('idEvento', '==', id)
       .get()
       .then((asistentes) => {
-        const _datoAsistente = [];
         asistentes.forEach((asistenteDoc) => {
           colectionPersonas.doc(asistenteDoc.data().email).get()
             .then((dAsistente) => {

@@ -3,22 +3,53 @@
 .Persona{
   height: 100%;
   width: 100%;
-  & > .CardBig{
-    display: grid;
-    grid-template-rows: 30% 70%;
-    > img{
+  &__portada{
+    position: relative;
+    > .portada{
       height: 100%;
       width: 100%;
       clip-path: polygon(100% 0%, 100% 56%, 0% 100%, 0% 0%);
+      @extend .sombraOscura;
     }
+    > .photoPerfil{
+      position: absolute;
+      left: 23%;
+      height: 150px !important;
+      width: 150px !important;
+      border-radius: 50%;
+      background-color: $color-claro-contraste;
+      @extend .sombraPrimario;
+    }
+    &-datos{
+      position: absolute;
+      top: 55%;
+      left: 4%;
+      width: 273px;
+      height: 4rem !important;
+      border-radius: 19px;
+      background-color: fade-out($color-claro-primario, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      @extend .sombraPrimario;
+    }
+  }
+  & > .CardBig{
+    display: grid;
+    grid-template-rows: 30% 70%;
+
   }
   & > .CardBig > &_content{
     height: 100%;
     display: grid;
-    grid-template-rows: 50% 30% 20%;
+    grid-template-rows: 50% 50%;
     align-self: center;
-    padding-left: 5%;;
     position: relative;
+     h4 {
+      text-align: center;
+    }
     > p{
       margin: 0%;
     }
@@ -32,6 +63,106 @@
       background-color: $color-aceptar;
       color: $color-claro-primario;
       @extend .sombraOscura;
+    }
+  }
+  &_content{
+    &-creados{
+      & a{
+        color: $color-oscuro;
+      }
+      & p{
+        margin: 0%;
+      }
+      & > .Card {
+        height: 100%;
+        & > img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+      &_content{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding-left: 2%;;
+        position: relative;
+        &_ubicacion, &_date, &_cupos{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 3%;
+          > img{
+            padding-right: 2%;
+          }
+          .reloj-icon{
+            padding-left: 2%;
+          }
+        }
+        > p{
+          margin: 0%;
+        }
+        > button{
+          position: absolute;
+          bottom: 34%;
+          right: 6%;
+          font-size: 20px;
+          border-radius: 30%;
+          border-width: 1px;
+          background-color: $color-aceptar;
+          color: $color-claro-primario;
+          @extend .sombraOscura;
+        }
+      }
+      @extend .styleScrollX;
+    }
+    &-inscritos{
+      & a{
+        color: $color-oscuro;
+      }
+      & p{
+        margin: 0%;
+      }
+      & > .Card {
+        height: 100%;
+        & > img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+      &_content{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding-left: 2%;;
+        position: relative;
+        &_ubicacion, &_date, &_cupos{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 3%;
+          > img{
+            padding-right: 2%;
+          }
+          .reloj-icon{
+            padding-left: 2%;
+          }
+        }
+        > p{
+          margin: 0%;
+        }
+        > button{
+          position: absolute;
+          bottom: 34%;
+          right: 6%;
+          font-size: 20px;
+          border-radius: 30%;
+          border-width: 1px;
+          background-color: $color-aceptar;
+          color: $color-claro-primario;
+          @extend .sombraOscura;
+        }
+      }
+      @extend .styleScrollX;
     }
   }
 

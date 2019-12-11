@@ -19,10 +19,10 @@ const Personas = (props) => {
           id: doc.id,
           ...doc.data(),
         };
-
-        personasFromDB.push(details);
+        if (doc.data().EMAIL !== user.EMAIL) {
+          personasFromDB.push(details);
+        }
       });
-      personasFromDB.find((item) => item.EMAIL === user.EMAIL);
       setPersonasDB(personasFromDB);
     });
   }, []);
