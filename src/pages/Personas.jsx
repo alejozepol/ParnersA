@@ -7,8 +7,8 @@ import Ubicacion from '../assets/icons/Ubicacion.png';
 import '../assets/styles/Personas.scss';
 
 const Personas = (props) => {
-  const { user } = props;
   const colectionPersonas = FirebaseApp.firestore().collection('user');
+  const user = JSON.parse(sessionStorage.getItem('user'));
   const [personasDB, setPersonasDB] = useState([]);
   useEffect(() => {
     // eslint-disable-next-line no-unused-vars
@@ -19,7 +19,9 @@ const Personas = (props) => {
           id: doc.id,
           ...doc.data(),
         };
-        if (doc.data().EMAIL !== user.EMAIL) {
+        console.log(details.EMAIL)
+        console.log(user.email)
+        if (details.EMAIL !== user.email) {
           personasFromDB.push(details);
         }
       });
@@ -53,9 +55,6 @@ const Personas = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
 };
 
 export default connect(mapStateToProps, null)(Personas);
